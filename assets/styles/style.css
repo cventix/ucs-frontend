@@ -77,6 +77,11 @@ a:active, a:hover {
   justify-self: center;
 }
 
+#w-node-_46add9f3-0030-ad83-ea9c-d69b84071f2d-84071f15 {
+  -ms-grid-column-align: end;
+  justify-self: end;
+}
+
 .w-button {
   display: inline-block;
   padding: 9px 15px;

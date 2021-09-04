@@ -42,7 +42,7 @@ function Footer() {
                 src="images/603df7f309bc103be0e8a8fb_icon.png"
                 loading="lazy"
                 width={132}
-                alt=""
+                alt="logo"
                 className={styles['image']}
               />
             </div>
