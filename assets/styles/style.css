@@ -72,6 +72,11 @@ a:active, a:hover {
 
 
 /*************Generals****************/
+#w-node-_46add9f3-0030-ad83-ea9c-d69b84071f2b-84071f15 {
+  -ms-grid-column-align: center;
+  justify-self: center;
+}
+
 .w-button {
   display: inline-block;
   padding: 9px 15px;
@@ -82,4 +87,9 @@ a:active, a:hover {
   text-decoration: none;
   cursor: pointer;
   border-radius: 0;
+}
+
+.w-inline-block {
+  max-width: 100%;
+  display: inline-block;
 }
