@@ -1,0 +1,65 @@
+@import '../../assets/styles/variables.scss';
+.slider-wrapper{
+    padding-top: 20px;
+}
+
+.arrows {
+  position: absolute;
+  top: 17%;
+  right: 4%;
+  width: 200px;
+  height: 60px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.button-arrow {
+  background-color: transparent;
+  border: none;
+  .icon-slider {
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    color: $ucf_skyBlueCrayola;
+    &:hover,
+    &:active {
+      color: $ucf_maximum_blue;
+      transition: color 200ms ease;
+    }
+  }
+}
+
+.img-slide {
+  width: 100%;
+  height: 180px;
+  object-fit: fill;
+  margin: auto;
+}
+.title-slider-container {
+  margin-top: 20px;
+  padding-right: 20px;
+  font-family: Muli, sans-serif;
+  color: $ucf_white;
+  font-size: 15px;
+  line-height: 1.2;
+  text-decoration: none;
+  .title-slider {
+    text-overflow: ellipsis;
+    white-space: break-spaces;
+    height: 50px;
+    overflow: hidden;
+  }
+}
+.desc-slider {
+  margin-top: 10px;
+  font-family: Muli, sans-serif;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.2;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 50px;
+  white-space: break-spaces;
+}
