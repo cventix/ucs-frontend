@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './button.module.scss';
 
-function Button(props) {
-  const { type, className, text, handleClick } = props;
+function Button({ type, className, innerText, handleClick }) {
   return (
-    <button className={className} type={type} onClick={handleClick}>
-      {text}
+    <button className={`${className} ${styles['w-button']}`} type={type} onClick={handleClick}>
+      {innerText}
     </button>
   );
 }
 Button.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
-  text: PropTypes.string,
+  innerText: PropTypes.string,
   handleClick: PropTypes.func,
 };
 Button.defaultProps = {
   type: 'button',
   className: '',
-  text: 'ok',
+  innerText: 'ok',
   handleClick: () => {},
 };
 export default Button;

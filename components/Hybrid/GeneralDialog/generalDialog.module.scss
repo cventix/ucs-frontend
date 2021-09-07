@@ -1,0 +1,17 @@
+.general-dialog {
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 50px 100px;
+}
+
+.close-overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 9;
+  opacity: 0.25;
+  cursor: pointer;
+}
