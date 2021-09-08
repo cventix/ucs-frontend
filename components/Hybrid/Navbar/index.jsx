@@ -1,8 +1,12 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useState } from 'react';
 import Link from 'next/link';
 import navStyles from './navbar.module.scss';
+import Login from '../Login';
 
 function Navbar(props) {
+  const [openedLogin, setOpenedLogin] = useState(false);
+
   const { className } = props;
   return (
     <div className={className}>
@@ -47,10 +51,14 @@ function Navbar(props) {
           data-ms-content="!members"
           data-w-id="8ceaea60-d025-b698-9d5e-55dfce352604"
           className={navStyles['login-btn'] + ' w-button'}
+          onClick={() => {
+            setOpenedLogin(true);
+          }}
         >
           Login
         </a>
       </Link>
+      {openedLogin && <Login closeHandler={setOpenedLogin} />}
     </div>
   );
 }
