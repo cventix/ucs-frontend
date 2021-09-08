@@ -4,7 +4,18 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { FormControl, FormLabel } from 'react-bootstrap';
 import styles from './textInput.module.scss';
 
-const TextInput = ({ name, id, inputClassName, labelClassName, labelText, type, maxLength, hasExtraTag, extraTag }) => {
+const TextInput = ({
+  name,
+  id,
+  inputClassName,
+  labelClassName,
+  labelText,
+  type,
+  maxLength,
+  hasExtraTag,
+  extraTag,
+  placeholder,
+}) => {
   const {
     control,
     formState: { errors },
@@ -33,6 +44,7 @@ const TextInput = ({ name, id, inputClassName, labelClassName, labelText, type, 
               name={name}
               className={`${styles['w-input']} ${inputClassName} ${errors?.[name]?.message && styles['input-error']}`}
               maxLength={maxLength}
+              placeholder={placeholder}
             />
             {errors?.[name]?.message && <span className={styles['message-error']}>{errors?.[name].message}</span>}
           </div>
@@ -56,6 +68,7 @@ TextInput.propTypes = {
   labelText: PropTypes.string,
   hasExtraTag: PropTypes.bool,
   extraTag: PropTypes.node,
+  placeholder: PropTypes.string,
 };
 TextInput.defaultProps = {
   id: '',
@@ -71,5 +84,6 @@ TextInput.defaultProps = {
   labelText: 'input',
   hasExtraTag: false,
   extraTag: null,
+  placeholder: '',
 };
 export default TextInput;
