@@ -21,7 +21,7 @@ function Navbar(props) {
         </Link>
       </div>
       <div className={navStyles['nav-link-desktop']}>
-        <Link href="/what-we-do.html">
+        <Link href="/what-we-do">
           <a className={navStyles['nav-link']}>WHAT WE DO</a>
         </Link>
       </div>
