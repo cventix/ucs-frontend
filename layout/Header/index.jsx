@@ -1,7 +1,7 @@
 import React from 'react';
 import headerStyles from './header.module.scss';
 import styles from '../../assets/styles/styles.webflow.module.scss';
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/Hybrid/Navbar';
 import MobileScreen from './MobileScreen';
 const Header = () => {
   return (

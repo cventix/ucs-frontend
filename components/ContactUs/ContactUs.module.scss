@@ -1,0 +1,59 @@
+@import "../../assets/styles/variables";
+
+.Title {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top: 6px $ucf_maximum_blue;
+  color: $ucf_white;
+  font-size: 50px;
+  line-height: 60px;
+}
+.Description {
+  margin-top: 25px;
+  margin-bottom: 0;
+  color: $ucf_white;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+}
+.SubmitButton {
+  width: 120px;
+  height: 50px;
+  color: $ucf_dark;
+  font-size: 15px;
+  font-weight: 700;
+}
+.Input {
+  width: 100%;
+  height: 38px;
+  border: 2px solid $ucf_white;
+  background: transparent !important;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: $ucf_white !important;
+  &:focus {
+    border-color: #3898ec;
+    outline: 0;
+  }
+}
+
+.Textarea {
+  width: 100%;
+  border: 2px solid $ucf_white;
+  background: transparent;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: $ucf_white;
+  &:focus {
+    border-color: #3898ec;
+    outline: 0;
+  }
+}
+
+.InputLabel {
+  display: block;
+  margin-bottom: 5px;
+  color: $ucf-white;
+  font-weight: 500;
+  font-size: 14px;
+}
