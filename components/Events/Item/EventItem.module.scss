@@ -1,0 +1,102 @@
+@import "./assets/styles/variables";
+
+.Container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #000;
+  box-shadow: 0 0 10px 5px rgb(44 186 220 / 20%);
+  .Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(53,225,253,.25);
+    .Title {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .Schedule {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      & > li {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 300;
+        text-align: right;
+        & > span {
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
+  .Description {
+    color: hsla(0,0%,100%,.9);
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(53,225,253,.25);
+  }
+  .Speakers {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(53,225,253,.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .Title {
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .SpeakerItems {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-x: auto;
+      margin-top: 15px;
+      .SpeakerItem {
+        width: 370px;
+        min-width: 280px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        .SpeakerName {
+          color: #fff;
+          font-size: 20px;
+          font-weight: 600;
+          text-align: center;
+          line-height: 36px;
+          margin-top: 20px;
+        }
+        .SpeakerDescription {
+          color: hsla(0,0%,100%,.6);
+          font-size: 16px;
+          text-align: center;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .RegisterLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 15px;
+    color: $ucf-dark;
+    border-radius: 5px;
+    background-color: #2cbadc;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+  }
+}
