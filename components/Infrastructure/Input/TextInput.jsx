@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Controller, useFormContext } from 'react-hook-form';
-import { FormControl, FormLabel } from 'react-bootstrap';
+import { Col, FormControl, FormLabel } from 'react-bootstrap';
 import styles from './textInput.module.scss';
 
 const TextInput = ({
@@ -15,6 +15,8 @@ const TextInput = ({
   hasExtraTag,
   extraTag,
   placeholder,
+  colXs,
+  colXl,
 }) => {
   const {
     control,
@@ -24,12 +26,12 @@ const TextInput = ({
   console.log(errors);
 
   return (
-    <div className={styles['field-wrapper']}>
+    <Col xs={colXs} md={colXl} className={styles['field-wrapper']}>
       <Controller
         name={name}
         control={control}
         render={({ field: { onChange, onBlur, value, name, ref } }) => (
-          <div>
+          <>
             <FormLabel className={labelClassName} htmlFor={id}>
               {labelText}
               {hasExtraTag && extraTag()}
@@ -42,20 +44,22 @@ const TextInput = ({
               onBlur={onBlur}
               type={type}
               name={name}
-              className={`${styles['w-input']} ${inputClassName} ${errors?.[name]?.message && styles['input-error']}`}
+              className={`${inputClassName} ${styles['w-input']} ${errors?.[name]?.message && styles['input-error']}`}
               maxLength={maxLength}
               placeholder={placeholder}
             />
             {errors?.[name]?.message && <span className={styles['message-error']}>{errors?.[name].message}</span>}
-          </div>
+          </>
         )}
       />
-    </div>
+    </Col>
   );
 };
 
 TextInput.propTypes = {
   id: PropTypes.string,
+  colXs: PropTypes.number,
+  colXl: PropTypes.number,
   value: PropTypes.string,
   ref: PropTypes.func,
   onChange: PropTypes.func,
@@ -85,5 +89,7 @@ TextInput.defaultProps = {
   hasExtraTag: false,
   extraTag: null,
   placeholder: '',
+  colXs: 12,
+  colXl: 12,
 };
 export default TextInput;
