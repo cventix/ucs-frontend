@@ -198,6 +198,33 @@
   color: $ucf_white;
 }
 
+.paragraph-10 {
+  position: static;
+  display: block;
+  width: 78%;
+  padding-right: 0px;
+  padding-left: 0px;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 26px;
+  line-height: 16px;
+  font-style: normal;
+  font-weight: 300;
+  text-align: center;
+}
+
+.bold-text-6 {
+  font-size: 20px;
+  line-height: 38px;
+  font-weight: 300;
+}
+
+.text-block-25 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
 /*buttons*/
 .button {
   width: 25vw;

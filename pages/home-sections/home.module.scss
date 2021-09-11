@@ -1,0 +1,121 @@
+.hero {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  font-weight: 400;
+  text-align: center;
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+
+.hero-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 800px;
+  padding-right: 50px;
+  padding-left: 50px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  &.trial {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 875px;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+  }
+}
+.hero-logo {
+  display: block;
+  margin-top: 35px;
+  padding-left: 0px;
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -o-object-fit: none;
+  object-fit: none;
+}
+.heading-copy {
+  font-family: Muli, sans-serif;
+  color: #fff;
+  text-align: center;
+  &.hero {
+    position: relative;
+    display: block;
+    width: 75%;
+    margin: 0px auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: Muli, sans-serif;
+    font-size: 27px;
+    line-height: 37px;
+  }
+}
+.signup-button {
+  position: static;
+  margin-top: 30px;
+  margin-right: 25px;
+  margin-left: 25px;
+  padding: 18px 24px;
+  border-radius: 5px;
+  background-color: #2cbadc;
+  box-shadow: 0 20px 30px -10px rgb(24 16 99 / 36%);
+  -webkit-transition: background-color 300ms ease, box-shadow 300ms ease;
+  transition: background-color 300ms ease, box-shadow 300ms ease;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.6em;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    background-color: rgba(44, 186, 220, 0.68);
+    box-shadow: 0 10px 20px -5px rgb(24 16 99 / 36%);
+  }
+}
+
+.bg-video-wrapper {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.background-video {
+  height: 800px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  &.trial {
+    overflow: hidden;
+    height: 600px;
+    background-clip: border-box;
+    -webkit-text-fill-color: inherit;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+}
