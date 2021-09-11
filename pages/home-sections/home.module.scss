@@ -193,3 +193,107 @@
     text-align: left;
   }
 }
+@media screen and (max-width: 991px) {
+  .heading-copy.hero {
+    width: auto;
+    font-size: 26px;
+    white-space: normal;
+  }
+
+  .editor-picks {
+    margin-top: 0px;
+    padding-top: 2%;
+  }
+
+  .blogs-and-articles {
+    overflow: hidden;
+  }
+
+  .thematic-events {
+    overflow: hidden;
+  }
+
+  .transformed {
+    overflow: hidden;
+  }
+}
+@media screen and (max-width: 479px) {
+  .hero-wrapper {
+    height: 700px;
+    &.trial {
+      height: 750px;
+      padding-right: 0px;
+      padding-left: 0px;
+      -webkit-box-align: end;
+      -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+    }
+    .heading-copy.hero {
+      font-size: 18px;
+      line-height: 22px;
+      margin-top: 15px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+  }
+  .hero-logo {
+    max-width: 45%;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+    -ms-flex-order: -1;
+    order: -1;
+    text-align: center;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+  .signup-button {
+    margin-right: 25px;
+    margin-left: 25px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+  }
+  .bg-video-wrapper {
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+  }
+  .background-video {
+    height: 700px;
+    .trial {
+      width: 100%;
+      height: 390px;
+    }
+  }
+  .editor-picks {
+    overflow: hidden;
+  }
+  .heading {
+    margin-top: 0px;
+    padding-left: 5%;
+    font-size: 30px;
+    text-align: center;
+  }
+  .podcasts-members {
+    overflow: hidden;
+  }
+  .blogs-and-articles {
+    padding-top: 0%;
+  }
+  .thematic-events {
+    padding-top: 0%;
+  }
+  .transformed {
+    padding-top: 0%;
+    &.bg-channel-copy {
+      padding-top: 0%;
+    }
+  }
+}

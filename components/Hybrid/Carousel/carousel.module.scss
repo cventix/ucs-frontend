@@ -57,7 +57,7 @@
 .desc-slider {
   margin-top: 10px;
   font-family: Muli, sans-serif;
-  color: #fff;
+  color: $ucf_white;
   font-size: 15px;
   line-height: 1.2;
   text-decoration: none;
@@ -65,4 +65,11 @@
   overflow: hidden;
   height: 50px;
   white-space: break-spaces;
+}
+
+
+@media screen and (max-width: 991px) {
+  .arrows{
+    display: none;
+  }
 }

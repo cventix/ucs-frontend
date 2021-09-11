@@ -208,3 +208,8 @@ label {
     max-width: 1200px !important;
   }
 }
+@media (max-width: 991px) {
+  .slick-slider .slick-dots{
+    display: none !important;
+  }
+}
