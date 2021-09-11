@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import navStyles from './navbar.module.scss';
 import Login from '../Login';
+import Register from '../Login/Reister';
 
 function Navbar(props) {
   const [openedLogin, setOpenedLogin] = useState(false);
+  const [openedRegister, setOpenedRegister] = useState(false);
 
   const { className } = props;
   return (
@@ -40,6 +42,9 @@ function Navbar(props) {
           data-ms-content="!members"
           data-w-id="2c2b1e03-c441-0e65-273f-2d66cf5365e0"
           className={navStyles['signup-btn'] + ' w-button'}
+          onClick={() => {
+            setOpenedRegister(true);
+          }}
         >
           Sign up for our 30-day trial
         </a>
@@ -59,6 +64,7 @@ function Navbar(props) {
         </a>
       </Link>
       {openedLogin && <Login closeHandler={setOpenedLogin} />}
+      {openedRegister && <Register closeHandler={setOpenedRegister} />}
     </div>
   );
 }
