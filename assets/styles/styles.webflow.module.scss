@@ -188,8 +188,14 @@
 .text-block.button-text.nav-button-text {
   font-size: 14px;
 }
-.text-span-6 {
+.text-span {
   border-bottom: 6px solid $ucf_maximum_blue;
+  border-style: none none solid;
+  border-width: 6px;
+  border-color: $ucf_dark $ucf_dark $ucf_maximum_blue;
+  background-image: none;
+  background-repeat: repeat;
+  color: $ucf_white;
 }
 
 .podcast-heading {

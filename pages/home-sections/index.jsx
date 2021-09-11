@@ -1,7 +1,11 @@
 import React from 'react';
 import homeStyles from './home.module.scss';
 import styles from '../../assets/styles/styles.webflow.module.scss';
-import { Button } from 'react-bootstrap';
+import Button from '../../components/Infrastructure/Button';
+import Section2 from './Section2';
+import Section3 from './Section3';
+import Section4 from './Section4';
+import Section5 from './Section5';
 
 const HomeSections = () => {
   return (
@@ -67,6 +71,15 @@ const HomeSections = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className={homeStyles['bg-wrapper']}>
+        <Section2 />
+        <Section3 />
+        <Section4 />
+        <Section5 />
+        <Button className={`${homeStyles['signup-button']} w-inline-block`}>
+          <div className={styles['text-block-25']}>Sign Up Today For Your Complimentary 30-Day Trial</div>
+        </Button>
       </div>
     </>
   );

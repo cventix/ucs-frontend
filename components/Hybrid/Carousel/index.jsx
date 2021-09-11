@@ -9,17 +9,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 const Carousel = (props) => {
-  const { children, title, titleClassName } = props;
+  const { children, title, titleClassName, carouselClassName } = props;
   const settings = {
     ...props.settings,
     arrows: true,
   };
 
   return (
-    <div className={sliderStyles['slider-wrapper']}>
+    <div className={`${sliderStyles['slider-wrapper']} ${carouselClassName}`}>
       {title ? (
         <h1 className={titleClassName && titleClassName}>
-          <span className={styles['text-span-6']}>{title && title}</span>
+          <span className={styles['text-span']}>{title && title}</span>
         </h1>
       ) : (
         <div className="mt-5" />
@@ -29,8 +29,9 @@ const Carousel = (props) => {
         <button
           className={sliderStyles['button-arrow']}
           onClick={() => {
-            const element = document.getElementsByClassName('slick-arrow slick-prev')[0];
-            element?.click();
+            const carouselElement = document.querySelector(`.${carouselClassName.replaceAll(/\s/g, '.')}`);
+            const buttonElement = carouselElement.querySelector('.slick-arrow.slick-prev');
+            buttonElement.click();
           }}
         >
           <FontAwesomeIcon className={sliderStyles['icon-slider']} icon={faCaretLeft} />
@@ -38,8 +39,9 @@ const Carousel = (props) => {
         <button
           className={sliderStyles['button-arrow']}
           onClick={() => {
-            const element = document.getElementsByClassName('slick-arrow slick-next')[0];
-            element?.click();
+            const carouselElement = document.querySelector(`.${carouselClassName.replaceAll(/\s/g, '.')}`);
+            const buttonElement = carouselElement.querySelector('.slick-arrow.slick-next');
+            buttonElement.click();
           }}
         >
           <FontAwesomeIcon className={sliderStyles['icon-slider']} icon={faCaretRight} />
@@ -54,6 +56,7 @@ Carousel.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
   titleClassName: PropTypes.string,
+  carouselClassName: PropTypes.string,
   settings: {
     dots: PropTypes.bool,
     infinite: PropTypes.bool,
@@ -67,6 +70,7 @@ Carousel.propTypes = {
 Carousel.defaultProps = {
   title: '',
   titleClassName: '',
+  carouselClassName: '',
   settings: {
     dots: false,
     infinite: false,
