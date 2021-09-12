@@ -19,7 +19,7 @@ const Thematic = () => {
       titleClassName={style['heading']}
     >
       <CarouselItem
-        image="/images/Matt-Krake.jpeg"
+        image="/images/150*150.png"
         title="Podcast - Louis Gave"
         description="August 5 - Clay Shirky: New York University"
         type="image"
@@ -27,7 +27,7 @@ const Thematic = () => {
         imageHeight={180}
       />
       <CarouselItem
-        image="/images/Matt-Krake.jpeg"
+        image="/images/150*150.png"
         title="Podcast - Louis Gave"
         description="August 5 - Clay Shirky: New York University"
         type="image"
@@ -35,7 +35,7 @@ const Thematic = () => {
         imageHeight={180}
       />
       <CarouselItem
-        image="/images/Matt-Krake.jpeg"
+        image="/images/150*150.png"
         title="Podcast - Louis Gave"
         description="August 5 - Clay Shirky: New York University"
         type="image"
@@ -43,7 +43,7 @@ const Thematic = () => {
         imageHeight={180}
       />
       <CarouselItem
-        image="/images/Matt-Krake.jpeg"
+        image="/images/150*150.png"
         title="Podcast - Louis Gave"
         description="August 5 - Clay Shirky: New York University"
         type="image"
@@ -51,7 +51,7 @@ const Thematic = () => {
         imageHeight={180}
       />
       <CarouselItem
-        image="/images/Matt-Krake.jpeg"
+        image="/images/150*150.png"
         title="Podcast - Louis Gave"
         description="August 5 - Clay Shirky: New York University"
         type="image"
@@ -59,7 +59,7 @@ const Thematic = () => {
         imageHeight={180}
       />
       <CarouselItem
-        image="/images/Matt-Krake.jpeg"
+        image="/images/150*150.png"
         title="Podcast - Louis Gave"
         description="August 5 - Clay Shirky: New York University"
         type="image"
@@ -67,7 +67,7 @@ const Thematic = () => {
         imageHeight={180}
       />
       <CarouselItem
-        image="/images/Matt-Krake.jpeg"
+        image="/images/150*150.png"
         title="Podcast - Louis Gave"
         description="August 5 - Clay Shirky: New York University"
         type="image"

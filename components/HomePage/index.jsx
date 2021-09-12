@@ -15,9 +15,9 @@ const HomeSections = () => {
         <div className={`${homeStyles['hero-wrapper']} ${homeStyles['trial']}`}>
           <div className={styles['_1200-container']}>
             <img
-              src="images/603df7f309bc103be0e8a8fb_icon.png"
+              src="images/603f6683f17e199e7e237545_603df7f309bc1080aae8a8f1_US China Series Logo_white.png"
               loading="lazy"
-              alt="Irantoptal Series logo"
+              alt="US-China Series logo"
               className={homeStyles['hero-logo']}
             />
             <h2 className={`${homeStyles['heading-copy']} ${homeStyles['hero']}`}>
@@ -25,7 +25,7 @@ const HomeSections = () => {
             </h2>
             <p className={styles['paragraph-10']}>
               <strong className={styles['bold-text-6']}>
-                Irantoptal Series delivers a practical dialogue on the future of the most critical technology,
+                US-China Series delivers a practical dialogue on the future of the most critical technology,
                 investment, and geopolitical relationship of the 21st&nbsp;Century. With the help of over 240 China
                 experts, we provide daily content and in-depth analysis on what drives your business, supply chain, and
                 investments.
