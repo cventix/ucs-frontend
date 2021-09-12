@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import style from './CarouselItem.module.scss';
+import style from './carousel.module.scss';
 
 const CarouselItem = ({ image, title, description, type, imageWidth, imageHeight }) => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from '../../Hybrid/Carousel';
-import CarouselItem from '../CarouselItem';
+import CarouselItem from '../../Hybrid/Carousel/CarouselItem';
 import style from './podcasts.module.scss';
 
 const Podcasts = () => {
