@@ -25,10 +25,9 @@ const HomeSections = () => {
             </h2>
             <p className={styles['paragraph-10']}>
               <strong className={styles['bold-text-6']}>
-                US-China Series delivers a practical dialogue on the future of the most critical technology,
-                investment, and geopolitical relationship of the 21st&nbsp;Century. With the help of over 240 China
-                experts, we provide daily content and in-depth analysis on what drives your business, supply chain, and
-                investments.
+                US-China Series delivers a practical dialogue on the future of the most critical technology, investment,
+                and geopolitical relationship of the 21st&nbsp;Century. With the help of over 240 China experts, we
+                provide daily content and in-depth analysis on what drives your business, supply chain, and investments.
                 <br />
                 <br />
                 The premium service provides unlimited access to live events, premium video and podcast libraries,
