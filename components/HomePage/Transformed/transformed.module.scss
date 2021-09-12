@@ -1,0 +1,20 @@
+@import "../../../assets/styles/variables.scss";
+
+.transformed {
+  position: relative;
+  overflow: hidden;
+  padding: 2% 0 2% 5%;
+  &.bg-channel-copy {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: transparent;
+    text-align: left;
+  }
+}
+
+.heading {
+  margin-top: 0px;
+  padding: 0px 15px 0px 0%;
+  font-family: Muli, sans-serif;
+  color: $ucf_blackBlue;
+}

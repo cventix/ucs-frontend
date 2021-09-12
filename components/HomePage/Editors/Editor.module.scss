@@ -1,0 +1,27 @@
+@import "./assets/styles/variables";
+
+  .heading {
+    margin-top: 20px;
+    padding: 0 15px 0 0;
+    color: $ucf_blackBlue;
+    text-align: left;
+  }
+.picks {
+  position: relative;
+  margin-top: 0px;
+  padding: 2% 0 2% 5%;
+  height: 500px;
+  &.bg {
+    display: block;
+    overflow: hidden;
+    grid-auto-columns: 1fr;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto;
+    background-color: transparent;
+    text-align: left;
+    -o-object-fit: fill;
+    object-fit: fill;
+  }
+}

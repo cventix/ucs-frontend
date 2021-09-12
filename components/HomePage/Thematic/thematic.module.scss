@@ -1,0 +1,14 @@
+@import "../../../assets/styles/variables.scss";
+.events {
+    position: relative;
+    overflow: hidden;
+    padding: 2% 5%;
+    text-align: left;
+}
+
+.heading {
+    margin-top: 0px;
+    padding: 0px 15px 0px 0%;
+    font-family: Muli, sans-serif;
+    color: $ucf_white;
+}
