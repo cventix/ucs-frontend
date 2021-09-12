@@ -10,9 +10,11 @@ import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 const Carousel = (props) => {
   const { children, title, titleClassName, carouselClassName } = props;
+
   const settings = {
     ...props.settings,
     arrows: true,
+    className: sliderStyles['slideContainer'],
   };
 
   return (
@@ -24,7 +26,6 @@ const Carousel = (props) => {
       ) : (
         <div className="mt-5" />
       )}
-
       <div className={sliderStyles['arrows']}>
         <button
           className={sliderStyles['button-arrow']}
