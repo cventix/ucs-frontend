@@ -3,6 +3,10 @@ import homeStyles from '../../components/HomePage/home.module.scss';
 import styles from '../../assets/styles/styles.webflow.module.scss';
 import Button from '../../components/Infrastructure/Button';
 import EditorCarousel from '../../components/HomePage/Editors';
+import Podcasts from './Podcasts';
+import Blogs from './Blogs';
+import Thematic from './Thematic';
+import Transformed from './Transformed';
 
 const HomeSections = () => {
   return (
@@ -71,6 +75,10 @@ const HomeSections = () => {
       </div>
       <div className={homeStyles['bg-wrapper']}>
         <EditorCarousel />
+        <Podcasts />
+        <Blogs />
+        <Thematic />
+        <Transformed />
         <Button className={`${homeStyles['signup-button']} w-inline-block`}>
           <div className={styles['text-block-25']}>Sign Up Today For Your Complimentary 30-Day Trial</div>
         </Button>

@@ -153,6 +153,12 @@ label {
 }
 
 /******Carousel******/
+.slick-slider{
+  margin-bottom: 30px !important;
+}
+.slick-slider .slick-track{
+  display: flex;
+}
 .slick-slider .slick-dots li {
   width: 15px;
   height: 15px;

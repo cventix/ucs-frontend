@@ -58,14 +58,14 @@ Carousel.propTypes = {
   title: PropTypes.string,
   titleClassName: PropTypes.string,
   carouselClassName: PropTypes.string,
-  settings: {
+  settings: PropTypes.shape({
     dots: PropTypes.bool,
     infinite: PropTypes.bool,
     arrows: PropTypes.bool,
     speed: PropTypes.number,
     slidesToShow: PropTypes.number,
     slidesToScroll: PropTypes.number,
-  },
+  }),
 };
 
 Carousel.defaultProps = {

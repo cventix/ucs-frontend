@@ -1,21 +1,21 @@
 import React from 'react';
 import Carousel from '../../Hybrid/Carousel';
 import CarouselItem from '../CarouselItem';
-import style from './Editor.module.scss';
+import style from './thematic.module.scss';
 
-const EditorsPicks = () => {
+const Thematic = () => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
   };
   return (
     <Carousel
       settings={settings}
-      title="Editors' Picks"
-      carouselClassName={`${style['picks']} ${style['bg']}`}
+      title="Thematic"
+      carouselClassName={style['events']}
       titleClassName={style['heading']}
     >
       <CarouselItem
@@ -24,7 +24,7 @@ const EditorsPicks = () => {
         description="August 5 - Clay Shirky: New York University"
         type="image"
         imageWidth={274}
-        imageHeight={218}
+        imageHeight={180}
       />
       <CarouselItem
         image="/images/Matt-Krake.jpeg"
@@ -32,7 +32,7 @@ const EditorsPicks = () => {
         description="August 5 - Clay Shirky: New York University"
         type="image"
         imageWidth={274}
-        imageHeight={218}
+        imageHeight={180}
       />
       <CarouselItem
         image="/images/Matt-Krake.jpeg"
@@ -40,7 +40,7 @@ const EditorsPicks = () => {
         description="August 5 - Clay Shirky: New York University"
         type="image"
         imageWidth={274}
-        imageHeight={218}
+        imageHeight={180}
       />
       <CarouselItem
         image="/images/Matt-Krake.jpeg"
@@ -48,7 +48,7 @@ const EditorsPicks = () => {
         description="August 5 - Clay Shirky: New York University"
         type="image"
         imageWidth={274}
-        imageHeight={218}
+        imageHeight={180}
       />
       <CarouselItem
         image="/images/Matt-Krake.jpeg"
@@ -56,10 +56,26 @@ const EditorsPicks = () => {
         description="August 5 - Clay Shirky: New York University"
         type="image"
         imageWidth={274}
-        imageHeight={218}
+        imageHeight={180}
+      />
+      <CarouselItem
+        image="/images/Matt-Krake.jpeg"
+        title="Podcast - Louis Gave"
+        description="August 5 - Clay Shirky: New York University"
+        type="image"
+        imageWidth={274}
+        imageHeight={180}
+      />
+      <CarouselItem
+        image="/images/Matt-Krake.jpeg"
+        title="Podcast - Louis Gave"
+        description="August 5 - Clay Shirky: New York University"
+        type="image"
+        imageWidth={274}
+        imageHeight={180}
       />
     </Carousel>
   );
 };
 
-export default EditorsPicks;
+export default Thematic;
