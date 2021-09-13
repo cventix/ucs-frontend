@@ -1,11 +1,11 @@
 import Layout from '../layout';
 import React from 'react';
-import DialogPro from '../components/Hybrid/DialogPro';
+import DialogGallery from '../components/Hybrid/DialogGallery';
 
 export default function Home() {
   return (
     <Layout>
-      <DialogPro />
+      <DialogGallery />
     </Layout>
   );
 }
