@@ -1,0 +1,17 @@
+@import '../../../assets/styles/variables.scss';
+
+.members {
+  position: relative;
+  padding: 2% 0px 2% 5%;
+  &.bg {
+    overflow: hidden;
+    text-align: left;
+  }
+}
+
+.heading {
+  margin-top: 0px;
+  padding: 0px 15px 0px 0;
+  font-family: Muli, sans-serif;
+  color: $ucf_white;
+}
