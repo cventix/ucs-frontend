@@ -36,12 +36,9 @@ const DialogGallery = () => {
               </div>
               <div className={dialogStyles['button-holder']}>
                 <div className={dialogStyles['button-wrapper']}>
-                  <Button
-                    type="button"
-                    className={dialogStyles['play-button']}
-                    innerText="Play"
-                    handleClick={() => {}}
-                  ></Button>
+                  <Button type="button" className={dialogStyles['play-button']} handleClick={() => {}}>
+                    Play
+                  </Button>
                 </div>
               </div>
             </div>

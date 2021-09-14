@@ -75,12 +75,9 @@ const ContactUs = ({ title, description }) => {
               </div>
               <div className="row align-items-center justify-content-end">
                 <div className="col-12 d-flex justify-content-end mt-3">
-                  <Button
-                    onClick={handleSubmit(submitHandler)}
-                    type="submit"
-                    innerText="Submit"
-                    className={style.SubmitButton}
-                  />
+                  <Button onClick={handleSubmit(submitHandler)} type="submit" className={style.SubmitButton}>
+                    Submit
+                  </Button>
                 </div>
               </div>
             </Form>
