@@ -1,7 +1,8 @@
 import React from 'react';
 import Carousel from '../../Hybrid/Carousel';
 import CarouselItem from '../../Hybrid/Carousel/CarouselItem';
-import style from './Editor.module.scss';
+import editorStyle from './Editor.module.scss';
+import style from '../../../assets/styles/styles.webflow.module.scss';
 
 const EditorsPicks = () => {
   const settings = {
@@ -10,13 +11,31 @@ const EditorsPicks = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
   };
   return (
     <Carousel
       settings={settings}
       title="Editors' Picks"
-      carouselClassName={`${style['picks']} ${style['bg']}`}
-      titleClassName={style['heading']}
+      carouselClassName={`${editorStyle['picks']} ${editorStyle['bg']}`}
+      titleClassName={style['carousel-heading']}
     >
       <CarouselItem
         image="/images/150*150.png"
