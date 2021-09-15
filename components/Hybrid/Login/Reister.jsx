@@ -107,7 +107,9 @@ const Register = ({ closeHandler }) => {
                   />
                 </Row>
 
-                <Button type="submit" innerText="Complete Sign up" className={loginStyles['login-button-2']} />
+                <Button type="submit" className={loginStyles['login-button-2']}>
+                  Complete Sign up
+                </Button>
                 <div className={loginStyles['terms-text']}>
                   By joining, you are agreeing to our
                   <Link href="#">

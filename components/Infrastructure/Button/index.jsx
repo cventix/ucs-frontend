@@ -12,13 +12,13 @@ function Button({ type, className, children, handleClick }) {
 Button.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
-  innerText: PropTypes.string,
+  children: PropTypes.node,
   handleClick: PropTypes.func,
 };
 Button.defaultProps = {
   type: 'button',
   className: '',
-  innerText: 'ok',
+  children: 'ok',
   handleClick: () => {},
 };
 export default Button;

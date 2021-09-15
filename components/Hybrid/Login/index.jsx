@@ -80,7 +80,9 @@ function Login({ closeHandler }) {
                   name="password"
                   isRequired={true}
                 />
-                <Button type="submit" className={loginStyles['login-button-2']} innerText="Login Now" />
+                <Button type="submit" className={loginStyles['login-button-2']}>
+                  Login Now
+                </Button>
                 <div className={loginStyles['terms-text']}>
                   By joining, you are agreeing to our{' '}
                   <a href="#" className={loginStyles['login-page-link']}>
