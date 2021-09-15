@@ -12,8 +12,9 @@
 ## Example
 
 ```javascript
-
 import Button from '../components/Infrastructure/Button';
 
-<Button type="submit" className="" innerText="Ok" handleClick={() => {}} />;
+<Button type="submit" className="" handleClick={() => {}}>
+  Ok
+</Button>;
 ```
