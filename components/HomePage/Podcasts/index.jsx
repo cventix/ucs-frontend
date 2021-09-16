@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from '../../Hybrid/Carousel';
-import CarouselItem from '../../Hybrid/Carousel/CarouselItem';
 import style from './podcasts.module.scss';
 
 const Podcasts = () => {
@@ -11,70 +10,69 @@ const Podcasts = () => {
     slidesToShow: 6,
     slidesToScroll: 1,
   };
+  const items = [
+    {
+      id: 1,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 2,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 3,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 4,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 5,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 6,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 7,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 8,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+  ];
+
   return (
     <Carousel
       settings={settings}
       title="Podcasts"
       carouselClassName={`${style['members']} ${style['bg']}`}
       titleClassName={style['heading']}
-    >
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={150}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={150}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={150}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={150}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={150}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={150}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={150}
-      />
-    </Carousel>
+      items={items}
+      imageWidth={150}
+      imageHeight={190}
+      linkType="play-action"
+      hoverActionType="scaleButton"
+    />
   );
 };
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from '../../Hybrid/Carousel';
-import CarouselItem from '../../Hybrid/Carousel/CarouselItem';
 import style from './Blogs.module.scss';
 
 const Blogs = () => {
@@ -11,86 +10,68 @@ const Blogs = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
   };
+  const items = [
+    {
+      id: 1,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 2,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 3,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 4,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 5,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 6,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 7,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+    {
+      id: 8,
+      src: '/images/150*150.png',
+      title: 'Podcast - Louis Gave',
+      description: 'August 5 - Clay Shirky: New York University',
+    },
+  ];
   return (
     <Carousel
       settings={settings}
       title="Blogs & Articles"
       carouselClassName={style['articles']}
       titleClassName={style['heading']}
-    >
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={190}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={190}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={190}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={190}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={190}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={190}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={190}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={190}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={150}
-        imageHeight={190}
-      />
-    </Carousel>
+      items={items}
+      imageWidth={150}
+      imageHeight={190}
+      linkType="normal"
+      hoverActionType="scaleButton"
+    />
   );
 };
 
