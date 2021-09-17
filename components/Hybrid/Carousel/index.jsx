@@ -7,9 +7,10 @@ import sliderStyles from './carousel.module.scss';
 import styles from '../../../assets/styles/styles.webflow.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import CarouselItem from './CarouselItem';
 
 const Carousel = (props) => {
-  const { children, title, titleClassName, carouselClassName } = props;
+  const { title, titleClassName, carouselClassName, items, imageWidth, imageHeight, linkType, hoverActionType } = props;
 
   const settings = {
     ...props.settings,
@@ -48,16 +49,36 @@ const Carousel = (props) => {
           <FontAwesomeIcon className={sliderStyles['icon-slider']} icon={faCaretRight} />
         </button>
       </div>
-      <Slider {...settings}>{children}</Slider>
+      <Slider {...settings}>
+        {items?.length > 0 &&
+          items.map((item) => {
+            return (
+              <CarouselItem
+                key={item.id}
+                src={item.src}
+                title={item.title}
+                description={item.description}
+                imageWidth={imageWidth}
+                imageHeight={imageHeight}
+                linkType={linkType}
+                hoverActionType={hoverActionType}
+              />
+            );
+          })}
+      </Slider>
     </div>
   );
 };
 
 Carousel.propTypes = {
-  children: PropTypes.node,
   title: PropTypes.string,
   titleClassName: PropTypes.string,
   carouselClassName: PropTypes.string,
+  items: PropTypes.array,
+  imageWidth: PropTypes.number,
+  imageHeight: PropTypes.number,
+  linkType: PropTypes.string,
+  hoverActionType: PropTypes.string,
   settings: PropTypes.shape({
     dots: PropTypes.bool,
     infinite: PropTypes.bool,
@@ -72,6 +93,11 @@ Carousel.defaultProps = {
   title: '',
   titleClassName: '',
   carouselClassName: '',
+  items: [],
+  imageWidth: 200,
+  imageHeight: 200,
+  linkType: 'normal',
+  hoverActionType: 'none',
   settings: {
     dots: false,
     infinite: false,
