@@ -1,7 +1,8 @@
 import React from 'react';
 import Carousel from '../../Hybrid/Carousel';
 import CarouselItem from '../../Hybrid/Carousel/CarouselItem';
-import style from './transformed.module.scss';
+import editorStyle from './transformed.module.scss';
+import style from '../../../assets/styles/styles.webflow.module.scss';
 
 const Transformed = () => {
   const settings = {
@@ -10,13 +11,31 @@ const Transformed = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
   };
   return (
     <Carousel
       settings={settings}
       title="China Transformed"
-      carouselClassName={`${style['transformed']} ${style['bg-channel-copy']}`}
-      titleClassName={style['heading']}
+      carouselClassName={`${editorStyle['transformed']} ${editorStyle['bg-channel-copy']}`}
+      titleClassName={style['carousel-heading']}
     >
       <CarouselItem
         image="/images/150*150.png"
