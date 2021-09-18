@@ -1,83 +1,22 @@
 import React from 'react';
 import Carousel from '../../Hybrid/Carousel';
-import CarouselItem from '../../Hybrid/Carousel/CarouselItem';
 import editorStyle from './Editor.module.scss';
 import style from '../../../assets/styles/styles.webflow.module.scss';
+import { items, settings } from './items';
 
 const EditorsPicks = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
-      },
-    ],
-  };
   return (
     <Carousel
       settings={settings}
       title="Editors' Picks"
       carouselClassName={`${editorStyle['picks']} ${editorStyle['bg']}`}
       titleClassName={style['carousel-heading']}
-    >
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={274}
-        imageHeight={218}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={274}
-        imageHeight={218}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={274}
-        imageHeight={218}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={274}
-        imageHeight={218}
-      />
-      <CarouselItem
-        image="/images/150*150.png"
-        title="Podcast - Louis Gave"
-        description="August 5 - Clay Shirky: New York University"
-        type="image"
-        imageWidth={274}
-        imageHeight={218}
-      />
-    </Carousel>
+      items={items}
+      imageWidth={274}
+      imageHeight={154}
+      hoverActionType="scaleButton"
+      linkType="play-action"
+    />
   );
 };
 
