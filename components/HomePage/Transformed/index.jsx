@@ -12,8 +12,8 @@ const Transformed = () => {
       carouselClassName={`${editorStyle['transformed']} ${editorStyle['bg-channel-copy']}`}
       titleClassName={style['carousel-heading']}
       items={items}
-      imageWidth={350}
-      imageHeight={350}
+      imageWidth={259}
+      imageHeight={259}
       hoverActionType="fadeButton"
       linkType="play-action"
     />

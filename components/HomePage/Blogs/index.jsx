@@ -12,8 +12,8 @@ const Blogs = () => {
       carouselClassName={editorStyle['articles']}
       titleClassName={style['carousel-heading']}
       items={items}
-      imageWidth={150}
-      imageHeight={190}
+      imageWidth={241}
+      imageHeight={241}
       linkType="link"
     />
   );

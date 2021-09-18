@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import homeStyles from '../../components/HomePage/home.module.scss';
 import styles from '../../assets/styles/styles.webflow.module.scss';
 import Button from '../../components/Infrastructure/Button';
@@ -7,8 +7,21 @@ import Podcasts from './Podcasts';
 import Blogs from './Blogs';
 import Thematic from './Thematic';
 import Transformed from './Transformed';
+import { useRouter } from 'next/router';
+import DialogGallery from '../Hybrid/DialogGallery';
 
 const HomeSections = () => {
+  const router = useRouter();
+  const { gallery } = router.query;
+  const [openDialogGalley, setOpenDialogGalley] = useState(false);
+  useEffect(() => {
+    if (gallery) {
+      setOpenDialogGalley(true);
+    } else {
+      setOpenDialogGalley(false);
+    }
+  }, [router]);
+
   return (
     <>
       <div className={`${homeStyles['hero']} wf-section`}>
@@ -82,6 +95,7 @@ const HomeSections = () => {
           <div className={styles['text-block-25']}>Sign Up Today For Your Complimentary 30-Day Trial</div>
         </Button>
       </div>
+      {openDialogGalley && <DialogGallery />}
     </>
   );
 };

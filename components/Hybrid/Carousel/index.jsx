@@ -58,6 +58,7 @@ const Carousel = (props) => {
                 src={item.src}
                 title={item.title}
                 description={item.description}
+                link={item.link}
                 imageWidth={imageWidth}
                 imageHeight={imageHeight}
                 linkType={linkType}
