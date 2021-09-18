@@ -8,6 +8,7 @@ import GeneralDialog from '../GeneralDialog';
 import Button from '../../Infrastructure/Button';
 import TextInput from '../../Infrastructure/Input/TextInput';
 import { Form } from 'react-bootstrap';
+import { loginService } from '../../../services';
 
 function Login({ closeHandler }) {
   const defaultValues = {
@@ -23,8 +24,16 @@ function Login({ closeHandler }) {
   const methods = useForm({ defaultValues: defaultValues, resolver: yupResolver(schema) });
   const { handleSubmit } = methods;
 
-  const submitHandler = (data) => {
-    console.log('loginHandler', data);
+  const submitHandler = async (data) => {
+    if (data.email && data.password) {
+      const response = await loginService(data);
+      if (response?.status === 'success') {
+        const token = response.payload.token;
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(response.payload));
+        window.location.reload();
+      }
+    }
   };
   return (
     <div className={loginStyles['login-overlay']} style={{ opacity: 1, display: 'block' }}>
