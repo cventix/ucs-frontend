@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from '../../assets/styles/styles.webflow.module.scss';
 import mobileStyles from './mobile.header.module.scss';
 
 function MobileScreen() {
+  const [isOpenBurger, setIsOpenBurger] = useState(false);
   return (
     <div className={`${styles['section-2']} wf-section`}>
       <div className={mobileStyles['mobile-nav-wrapper-trial']}>
@@ -22,7 +23,58 @@ function MobileScreen() {
               <a href="#" className={`${styles['login-btn-3']} ${styles['sm-login-btn']} w-button`}>
                 Login
               </a>
-              <div data-w-id="1e125eb7-3e97-b009-3cab-31388710a2c5" className={styles['menu-button-wrap']}>
+              <div
+                role="button"
+                tabIndex={0}
+                id="hamburger"
+                onClick={() => {
+                  setIsOpenBurger(!isOpenBurger);
+                }}
+                className={`${mobileStyles['hamburglar']} ${
+                  isOpenBurger ? mobileStyles['is-open'] : mobileStyles['is-closed']
+                }`}
+              >
+                <div className={mobileStyles['burger-icon']}>
+                  <div className={mobileStyles['burger-container']}>
+                    <span className={mobileStyles['burger-bun-top']} />
+                    <span className={mobileStyles['burger-filling']} />
+                    <span className={mobileStyles['burger-bun-bot']} />
+                  </div>
+                </div>
+                {/* svg ring containter */}
+                <div className={mobileStyles['burger-ring']}>
+                  <svg className={mobileStyles['svg-ring']}>
+                    <path
+                      className="path"
+                      fill="none"
+                      stroke="#fff"
+                      strokeMiterlimit={10}
+                      strokeWidth={4}
+                      d="M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2"
+                    />
+                  </svg>
+                </div>
+                {/* the masked path that animates the fill to the ring */}
+                <svg width={0} height={0}>
+                  <mask id="mask">
+                    <path
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      stroke="#ff0000"
+                      strokeMiterlimit={10}
+                      strokeWidth={4}
+                      d="M 34 2 c 11.6 0 21.8 6.2 27.4 15.5 c 2.9 4.8 5 16.5 -9.4 16.5 h -4"
+                    />
+                  </mask>
+                </svg>
+                <div className={mobileStyles['path-burger']}>
+                  <div className={mobileStyles['animate-path']}>
+                    <div className={mobileStyles['path-rotation']} />
+                  </div>
+                </div>
+              </div>
+
+              {/* <div data-w-id="1e125eb7-3e97-b009-3cab-31388710a2c5" className={styles['menu-button-wrap']}>
                 <div
                   data-w-id="1e125eb7-3e97-b009-3cab-31388710a2c6"
                   data-animation-type="lottie"
@@ -37,12 +89,12 @@ function MobileScreen() {
                   data-ix2-initial-state={0}
                   className={styles['lottie-animation-2']}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
       </div>
-      <div className={mobileStyles['full-screen-menu']}>
+      <div className={`${mobileStyles['full-screen-menu']} ${isOpenBurger && mobileStyles['show-menu']}`}>
         <div className={mobileStyles['menu-content-wrap']}>
           <Link href="/">
             <a className={`${mobileStyles['mob-menu-item']} w--current w-inline-block `}>
