@@ -60,7 +60,6 @@
       opacity: 1;
       top: 0;
       right: 0;
-
     }
   }
   .menu-content-wrap {
@@ -471,9 +470,6 @@
   }
 }
 @media screen and (max-width: 767px) {
-  .full-screen-menu {
-    display: none;
-  }
   .menu-content-wrap {
     margin-top: 40px;
   }
@@ -486,11 +482,12 @@
       display: flex;
     }
   }
+  .hamburglar {
+    transform: scale(0.6);
+    margin-left: 0;
+  }
 }
 @media screen and (max-width: 479px) {
-  .full-screen-menu {
-    display: none;
-  }
   .menu-content-wrap {
     margin-top: 0px;
   }
@@ -500,5 +497,8 @@
       top: 2%;
       margin-top: 5px;
     }
+  }
+  .hamburglar {
+    transform: scale(0.5);
   }
 }

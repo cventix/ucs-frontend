@@ -391,7 +391,9 @@
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
+    margin: auto;
     font-size: 16px;
+    padding: 15px;
   }
 
   /*animations*/
@@ -425,6 +427,9 @@
     width: 20vw;
     padding-right: 0px;
     padding-left: 0px;
+  }
+  .text-block-9 {
+    font-size: 40px;
   }
 }
 
@@ -506,6 +511,9 @@
     align-self: center;
     font-size: 16px;
     line-height: 1.3;
+  }
+  .text-block-9 {
+    font-size: 30px;
   }
 }
 
