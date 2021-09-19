@@ -14,8 +14,7 @@ const Thematic = () => {
         carouselClassName={editorStyle['events']}
         titleClassName={style['carousel-heading']}
         items={items}
-        imageWidth={204}
-        imageHeight={204}
+        itemClassName="medium-square"
         hoverActionType="fadeButton"
         linkType="play-action"
       />

@@ -12,8 +12,7 @@ const EditorsPicks = () => {
       carouselClassName={`${editorStyle['picks']} ${editorStyle['bg']}`}
       titleClassName={style['carousel-heading']}
       items={items}
-      imageWidth={274}
-      imageHeight={154}
+      itemClassName="horizontal-rectangle"
       hoverActionType="scaleButton"
       linkType="play-action"
     />

@@ -10,7 +10,7 @@ import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import CarouselItem from './CarouselItem';
 
 const Carousel = (props) => {
-  const { title, titleClassName, carouselClassName, items, imageWidth, imageHeight, linkType, hoverActionType } = props;
+  const { title, titleClassName, carouselClassName, items, itemClassName, linkType, hoverActionType } = props;
 
   const settings = {
     ...props.settings,
@@ -59,8 +59,7 @@ const Carousel = (props) => {
                 title={item.title}
                 description={item.description}
                 link={item.link}
-                imageWidth={imageWidth}
-                imageHeight={imageHeight}
+                itemClassName={itemClassName}
                 linkType={linkType}
                 hoverActionType={hoverActionType}
               />
@@ -76,10 +75,9 @@ Carousel.propTypes = {
   titleClassName: PropTypes.string,
   carouselClassName: PropTypes.string,
   items: PropTypes.array,
-  imageWidth: PropTypes.number,
-  imageHeight: PropTypes.number,
   linkType: PropTypes.string,
   hoverActionType: PropTypes.string,
+  itemClassName: PropTypes.string,
   settings: PropTypes.shape({
     dots: PropTypes.bool,
     infinite: PropTypes.bool,
@@ -95,10 +93,9 @@ Carousel.defaultProps = {
   titleClassName: '',
   carouselClassName: '',
   items: [],
-  imageWidth: 200,
-  imageHeight: 200,
   linkType: 'normal',
   hoverActionType: 'none',
+  itemClassName: 'medium-square',
   settings: {
     dots: false,
     infinite: false,

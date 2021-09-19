@@ -11,8 +11,7 @@ const Podcasts = () => {
       carouselClassName={`${editorStyle['members']} ${editorStyle['bg']}`}
       titleClassName={style['carousel-heading']}
       items={items}
-      imageWidth={216}
-      imageHeight={218}
+      itemClassName="small-square"
       hoverActionType="scaleButton"
       linkType="play-action"
     />

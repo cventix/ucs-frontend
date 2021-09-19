@@ -40,11 +40,12 @@
   }
 }
 
-.Container {
+.container {
   // width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
   .Title {
     margin-top: 20px;
     padding-right: 20px;
@@ -68,13 +69,14 @@
   text-align: left;
   text-decoration: none;
   position: relative;
-  img {
-    object-fit: cover;
-  }
+  width: 100%;
+  display: block;
 }
 .image-scale-holder {
   position: relative;
   display: block;
+  width: 100%;
+  overflow: hidden;
   &:hover,
   &:active {
     .play-button__icon {
@@ -84,7 +86,8 @@
   }
 }
 .image-fade-holder {
-  height: 100%;
+  width: 100%;
+  overflow: hidden;
   transform: scale(1);
   transition: transform 400ms ease 0s;
   &:hover,
@@ -102,11 +105,11 @@
   display: flex;
   outline: none;
   position: absolute;
-  width: 100%;
-  height: 100%;
   z-index: 1;
   left: 0;
   top: 0;
+  right: 0;
+  bottom: 0;
   .play-button__icon {
     display: flex;
     margin: auto;
@@ -133,27 +136,85 @@
 
 .bc-image {
   display: inline-block;
-  max-width: 100%;
+  width: auto;
+  height: 100%;
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
   margin: 0;
   .bc-image__wrapper {
-    ox-sizing: border-box;
+    box-sizing: border-box;
     display: block;
-    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
     img {
-      max-width: 100%;
       display: block;
       margin: 0px;
       border: none;
       padding: 0px;
+      object-fit: cover;
+      height: auto;
+      min-height: 100%;
+      width: 100%;
+      opacity: 0;
     }
   }
 }
 
+.horizontal-rectangle {
+  height: 175px;
+  width: 100%;
+  overflow: hidden;
+}
+.small-square {
+  height: 218px;
+}
+.medium-square{
+  height: 270px;
+}
+
+@media screen and (min-width: 1500px) {
+  .horizontal-rectangle {
+    height: 238px;
+  }
+  .medium-square{
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 1224px) {
+  .horizontal-rectangle {
+    height: 131px;
+  }
+}
+
 @media screen and (max-width: 991px) {
+  .horizontal-rectangle {
+    height: 201px;
+  }
   .arrows {
     display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .horizontal-rectangle {
+    padding-right: 5%;
+    height: 250px;
+    .play-button-scale {
+      right: 5%;
+    }
+  }
+  .small-square {
+    padding-right: 5%;
+    .play-button-scale {
+      right: 5%;
+    }
+  }
+}
+@media screen and (max-width: 479px) {
+  .horizontal-rectangle {
+    height: 180px;
   }
 }
