@@ -4,6 +4,7 @@ import Link from 'next/link';
 import navStyles from './navbar.module.scss';
 import Login from '../Login';
 import Register from '../Login/Reister';
+import UserItems from './UserItems';
 
 function Navbar(props) {
   const [openedLogin, setOpenedLogin] = useState(false);
@@ -75,9 +76,7 @@ function Navbar(props) {
           </Link>
         </Fragment>
       ) : (
-        <div className="text-white" style={{ fontSize: 14, marginLeft: 10 }}>
-          {user?.name}
-        </div>
+        <UserItems user={user} />
       )}
       {openedLogin && <Login closeHandler={setOpenedLogin} />}
       {openedRegister && <Register closeHandler={setOpenedRegister} />}

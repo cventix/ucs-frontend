@@ -9,7 +9,7 @@
   &:hover {
     box-shadow: inset 0 -3px 0 -2px $ucf_skyBlueCrayola;
     color: $ucf_skyBlueCrayola;
-    a{
+    a {
       color: $ucf_white;
     }
   }
@@ -69,4 +69,54 @@
   line-height: 1;
   font-weight: 700;
   text-align: center;
+}
+
+.popover-wrapper {
+  position: relative;
+  .popover-holder {
+    span {
+      font-size: 15px;
+      font-weight: 400;
+      color: $ucf_white;
+      cursor: pointer;
+    }
+    &:hover,
+    &:active {
+      .popover {
+        display: block;
+      }
+    }
+  }
+  .popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    display: none;
+  }
+  .popover-wrapper{
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: $ucf_white;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .popover-item {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    color: $ucf_dark;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    &:hover,
+    &:active {
+      background-color: $ucf_skyBlueCrayola;
+      color: $ucf_blackBlue;
+    }
+  }
 }
