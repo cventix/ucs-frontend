@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import Image from 'next/image';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import style from './carousel.module.scss';
@@ -7,15 +6,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 const CarouselItem = (props) => {
-  const { src, title, description, imageWidth, imageHeight, hoverActionType, link, linkType } = props;
+  const { src, title, description, hoverActionType, itemClassName, link, linkType } = props;
+
   return (
     <Fragment>
-      <div className={style.Container} style={{ width: imageWidth, height: imageHeight }}>
+      <div className={style['container']}>
         {linkType === 'play-action' ? (
           <Link href={{ pathname: '/', query: { gallery: 'test' } }}>
             <a className={style['slide-link']}>
               <div
-                className={hoverActionType === 'scaleButton' ? style['image-scale-holder'] : style['image-fade-holder']}
+                className={`${
+                  hoverActionType === 'scaleButton' ? style['image-scale-holder'] : style['image-fade-holder']
+                } ${style[itemClassName]}`}
               >
                 {hoverActionType !== 'none' && (
                   <>
@@ -32,8 +34,8 @@ const CarouselItem = (props) => {
                 )}
                 {src && (
                   <div className={style['bc-image']}>
-                    <div className={style['bc-image__wrapper']}>
-                      <img className="test" src={src} alt={title} width={imageWidth} height={imageHeight} />
+                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${src})` }}>
+                      <img className="test" src={src} alt={title} />
                     </div>
                   </div>
                 )}
@@ -45,8 +47,16 @@ const CarouselItem = (props) => {
           </Link>
         ) : (
           <Link href={link}>
-            <a>
-              <div>{src && <Image src={src} width={imageWidth} height={imageHeight} />}</div>
+            <a className={style['slide-link']}>
+              <div className={style[itemClassName]}>
+                {src && (
+                  <div className={style['bc-image']}>
+                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${src})` }}>
+                      <img className="test" src={src} alt={title} />
+                    </div>
+                  </div>
+                )}
+              </div>
 
               <h2 className={style.Title}>{title}</h2>
               <p className={style.Description}>{description}</p>
@@ -63,11 +73,10 @@ CarouselItem.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   onClick: PropTypes.func,
-  imageWidth: PropTypes.number,
-  imageHeight: PropTypes.number,
   hoverActionType: PropTypes.string,
   linkType: PropTypes.string,
   link: PropTypes.string,
+  itemClassName: PropTypes.string,
 };
 
 CarouselItem.defaultProps = {
@@ -75,11 +84,10 @@ CarouselItem.defaultProps = {
   title: '',
   description: '',
   onClick: () => {},
-  imageWidth: 0,
-  imageHeight: 0,
   hoverActionType: 'none',
   linkType: 'normal',
   link: '#',
+  itemClassName: 'medium-square',
 };
 
 export default CarouselItem;
