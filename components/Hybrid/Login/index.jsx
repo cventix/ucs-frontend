@@ -8,9 +8,10 @@ import GeneralDialog from '../GeneralDialog';
 import Button from '../../Infrastructure/Button';
 import TextInput from '../../Infrastructure/Input/TextInput';
 import { Form } from 'react-bootstrap';
-import { loginService } from '../../../services';
+import { useLoginMutation } from '../../../hooks/Query';
 
 function Login({ closeHandler }) {
+  const loginMutation = useLoginMutation();
   const defaultValues = {
     email: '',
     password: '',
@@ -24,17 +25,19 @@ function Login({ closeHandler }) {
   const methods = useForm({ defaultValues: defaultValues, resolver: yupResolver(schema) });
   const { handleSubmit } = methods;
 
-  const submitHandler = async (data) => {
-    if (data.email && data.password) {
-      const response = await loginService(data);
-      if (response?.status === 'success') {
-        const token = response.payload.token;
+  const submitHandler = (body) => {
+    if (body.email && body.password) {
+      loginMutation.mutate(body);
+      const { isSuccess, data } = loginMutation;
+      if (isSuccess) {
+        const token = data.payload.token;
         localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(response.payload));
+        localStorage.setItem('user', JSON.stringify(data.payload));
         window.location.reload();
       }
     }
   };
+
   return (
     <div className={loginStyles['login-overlay']} style={{ opacity: 1, display: 'block' }}>
       <GeneralDialog closeHandler={closeHandler}>
