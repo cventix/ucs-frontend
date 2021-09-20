@@ -92,7 +92,9 @@
   transition: transform 400ms ease 0s;
   &:hover,
   &:active {
-    transform: scale(1.1);
+    .bc-image__wrapper {
+      transform: scale(1.1);
+    }
     .play-button__icon {
       background-color: rgba(30, 113, 231, 0.76);
     }
@@ -149,6 +151,7 @@
     width: 100%;
     background-size: cover;
     background-position: center;
+    transition: transform 400ms ease 0s;
     img {
       display: block;
       margin: 0px;
@@ -171,16 +174,28 @@
 .small-square {
   height: 218px;
 }
-.medium-square{
+.medium-square {
   height: 270px;
+}
+.big-square {
+  height: 230px;
+}
+.bigest-square {
+  height: 294px;
 }
 
 @media screen and (min-width: 1500px) {
   .horizontal-rectangle {
     height: 238px;
   }
-  .medium-square{
+  .medium-square {
     margin-right: 50px;
+  }
+  .big-square {
+    height: 324px;
+  }
+  .bigest-square {
+    height: 410px;
   }
 }
 
@@ -206,9 +221,13 @@
       right: 5%;
     }
   }
-  .small-square {
+  .small-square,
+  .medium-square,
+  .big-square,
+  .bigest-square {
     padding-right: 5%;
-    .play-button-scale {
+    .play-button-scale,
+    .play-button-fade {
       right: 5%;
     }
   }
