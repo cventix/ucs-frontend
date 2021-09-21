@@ -9,6 +9,8 @@ import Button from '../../Infrastructure/Button';
 import TextInput from '../../Infrastructure/Input/TextInput';
 import { Form, Row } from 'react-bootstrap';
 import { useRegisterMutation } from '../../../hooks/Query';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const Register = ({ closeHandler }) => {
   const registerMutation = useRegisterMutation();
@@ -115,6 +117,7 @@ const Register = ({ closeHandler }) => {
                 </Row>
 
                 <Button type="submit" className={loginStyles['login-button-2']}>
+                  {registerMutation.isLoading && <FontAwesomeIcon icon={faSpinner} className="fa-spin" />}
                   Complete Sign up
                 </Button>
                 <div className={loginStyles['terms-text']}>

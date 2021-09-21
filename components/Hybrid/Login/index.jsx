@@ -9,6 +9,8 @@ import Button from '../../Infrastructure/Button';
 import TextInput from '../../Infrastructure/Input/TextInput';
 import { Form } from 'react-bootstrap';
 import { useLoginMutation } from '../../../hooks/Query';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 function Login({ closeHandler }) {
   const loginMutation = useLoginMutation();
@@ -33,7 +35,7 @@ function Login({ closeHandler }) {
         const token = data.payload.token;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(data.payload));
-        window.location.reload();
+        location.reload();
       }
     }
   };
@@ -93,6 +95,7 @@ function Login({ closeHandler }) {
                   isRequired={true}
                 />
                 <Button type="submit" className={loginStyles['login-button-2']}>
+                  {loginMutation.isLoading && <FontAwesomeIcon icon={faSpinner} className="fa-spin" />}
                   Login Now
                 </Button>
                 <div className={loginStyles['terms-text']}>
