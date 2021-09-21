@@ -1,8 +1,12 @@
 import { useMutation } from 'react-query';
-import { loginService } from '../../../services';
+import { loginService, registerService } from '../../../services';
 
 const useLoginMutation = () => {
   return useMutation(loginService);
 };
 
-export { useLoginMutation };
+const useRegisterMutation = () => {
+  return useMutation(registerService);
+};
+
+export { useLoginMutation, useRegisterMutation };

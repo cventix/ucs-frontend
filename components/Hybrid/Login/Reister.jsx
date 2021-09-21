@@ -8,8 +8,10 @@ import GeneralDialog from '../GeneralDialog';
 import Button from '../../Infrastructure/Button';
 import TextInput from '../../Infrastructure/Input/TextInput';
 import { Form, Row } from 'react-bootstrap';
+import { useRegisterMutation } from '../../../hooks/Query';
 
 const Register = ({ closeHandler }) => {
+  const registerMutation = useRegisterMutation();
   const defaultValues = {
     email: '',
     password: '',
@@ -24,8 +26,13 @@ const Register = ({ closeHandler }) => {
 
   const methods = useForm({ defaultValues: defaultValues, resolver: yupResolver(schema) });
   const { handleSubmit } = methods;
-  const submitHandler = (data) => {
-    console.log('registerHandler', data);
+  const submitHandler = (body) => {
+    const info = {
+      name: `${body.firstName} ${body.lastName}`,
+      email: body.email,
+      password: body.password,
+    };
+    registerMutation.mutate(info);
   };
   return (
     <div className={loginStyles['login-overlay']} style={{ opacity: 1, display: 'block' }}>

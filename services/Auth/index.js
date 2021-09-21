@@ -5,4 +5,9 @@ const loginService = async (body) => {
   return data;
 };
 
-export { loginService };
+const registerService = async (body) => {
+  const { data } = await axiosClient.post(`auth/register`, body);
+  return data;
+};
+
+export { loginService, registerService };
