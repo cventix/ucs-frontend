@@ -1,4 +1,4 @@
-@import "../../assets/styles/variables";
+@import '../../assets/styles/variables';
 
 .Container {
   width: 100%;
@@ -12,11 +12,10 @@
     -webkit-flex-wrap: nowrap;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    background-image: linear-gradient(
-                    0deg,#000,hsla(0,0%,100%,0)),url('../../public/images/about-top-bg.jpg');
-    background-position: 0 0,50% 50%;
-    background-size: auto,cover;
-    background-attachment: scroll,scroll;
+    background-image: linear-gradient(0deg, #000, hsla(0, 0%, 100%, 0)), url('../../public/images/about-top-bg.jpg');
+    background-position: 0 0, 50% 50%;
+    background-size: auto, cover;
+    background-attachment: scroll, scroll;
     object-fit: cover;
     flex-direction: column;
     align-items: center;
@@ -36,7 +35,7 @@
       }
       .Description {
         width: 75%;
-        color: hsla(0,0%,100%,.9);
+        color: hsla(0, 0%, 100%, 0.9);
         font-size: 20px;
         line-height: 1.5;
         font-style: normal;
@@ -52,14 +51,14 @@
     -moz-box-pack: center;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(0deg,#171f2b,#000);
+    background-image: linear-gradient(0deg, #171f2b, #000);
     .FounderTitle {
       margin-top: 0;
       margin-bottom: 0;
       border-top: 6px #2cbadc;
       color: #fff;
       font-size: 50px;
-      line-height: 60px
+      line-height: 60px;
     }
     .FounderDescription {
       margin-top: 25px;
@@ -85,9 +84,8 @@
     -ms-flex-align: center;
     align-items: center;
     background-color: #000;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#171f2b),to(#000));
-    background-image: linear-gradient(
-                    180deg,#171f2b,#000);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#171f2b), to(#000));
+    background-image: linear-gradient(180deg, #171f2b, #000);
   }
   .EventSection {
     position: relative;
@@ -108,16 +106,36 @@
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    background-image: linear-gradient(171deg,#171f2b,#000);
+    background-image: linear-gradient(171deg, #171f2b, #000);
     .Title {
       margin-top: 40px;
       margin-bottom: 50px;
       border-top: 6px #2cbadc;
-      font-family: Muli,sans-serif;
+      font-family: Muli, sans-serif;
       color: #fff;
       font-size: 50px;
       font-weight: 700;
       line-height: 60px;
     }
+  }
+}
+
+.single-item-carousel {
+  width: 100%;
+  display: block;
+}
+.our-events {
+  margin-top: 40px;
+  margin-bottom: 50px !important;
+  border-top: 6px #2cbadc;
+  font-family: Muli, sans-serif;
+  color: #fff;
+  font-size: 50px !important;
+  font-weight: 700 !important;
+  line-height: 60px !important;
+  text-align: center;
+  span{
+    border: none;
+    text-align: center;
   }
 }

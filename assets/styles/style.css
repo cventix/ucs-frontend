@@ -134,6 +134,10 @@ label {
   cursor: pointer;
   border-radius: 0;
 }
+.w-button:hover,
+.w-button:active {
+  color: white;
+}
 
 .w-inline-block {
   max-width: 100%;
@@ -153,10 +157,10 @@ label {
 }
 
 /******Carousel******/
-.slick-slider{
+.slick-slider {
   margin-bottom: 30px !important;
 }
-.slick-slider .slick-track{
+.slick-slider .slick-track {
   display: flex;
 }
 .slick-slider .slick-dots li {
@@ -217,12 +221,12 @@ label {
   }
 }
 @media (max-width: 991px) {
-  .slick-slider .slick-dots{
+  .slick-slider .slick-dots {
     display: none !important;
   }
 }
 @media (max-width: 767px) {
-.slick-slide .carousel_Container__21IH3{
-  align-items: center;
-}
+  .slick-slide .carousel_Container__21IH3 {
+    align-items: center;
+  }
 }

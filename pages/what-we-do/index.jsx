@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Layout from '../../layout';
 import Testimonial from '../../components/Testimonial';
 import style from './WhatWeDo.module.scss';
+import Carousel from '../../components/Hybrid/Carousel';
+import { settings, items } from './carouselItems';
 
 const WhatWeDo = () => {
   return (
@@ -50,24 +52,16 @@ const WhatWeDo = () => {
             </div>
           </div>
           <div className={style.EventSection}>
-            <h2 className={style.Title}>Our Events</h2>
-            <div className="container">
-              <div className="row align-items-center">
-                <div className="col-6">
-                  <p className="text-white">
-                    China has leapfrogged the United States to become the undisputed global fintech hub. The speed,
-                    sophistication, and scale of China fintech development is unmatched and attributed to Its high
-                    national mobile internet penetration, a large e-commerce ecosystem, its dominant mega-tech
-                    companies, and traditionally accommodative regulations. Since the Ant Financial clampdown, Chinese
-                    authorities are exploring ways to tighten regulation. Will stricter regulations hinder China s
-                    fintech sector growth?
-                  </p>
-                </div>
-                <div className="col-6">
-                  <Image src="/images/text.png" width={400} height={400} />
-                </div>
-              </div>
-            </div>
+            <Carousel
+              settings={settings}
+              title="Our Events"
+              carouselClassName={style['single-item-carousel']}
+              titleClassName={style['our-events']}
+              items={items}
+              itemClassName="single-slide"
+              hoverActionType="none"
+              linkType="single-video-slide"
+            />
           </div>
           <div className={style.Testimonial}>
             <div className="container">
