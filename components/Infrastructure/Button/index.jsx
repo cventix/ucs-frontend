@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './button.module.scss';
 
-function Button({ type, className, children, handleClick }) {
+function Button({ type, className, children, handleClick, ...props }) {
   return (
-    <button className={`${className} ${styles['w-button']}`} type={type} onClick={handleClick}>
+    <button className={`${className} ${styles['w-button']}`} type={type} onClick={handleClick} {...props}>
       {children}
     </button>
   );

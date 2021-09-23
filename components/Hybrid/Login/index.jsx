@@ -8,10 +8,10 @@ import GeneralDialog from '../GeneralDialog';
 import Button from '../../Infrastructure/Button';
 import TextInput from '../../Infrastructure/Input/TextInput';
 import { Form } from 'react-bootstrap';
-import { useLoginMutation } from '../../../hooks/Query';
+import { useLoginMutation } from '../../../hooks';
 
 function Login({ closeHandler }) {
-  const loginMutation = useLoginMutation();
+  const [{ loading }, loginAction] = useLoginMutation();
   const defaultValues = {
     email: '',
     password: '',
@@ -25,16 +25,9 @@ function Login({ closeHandler }) {
   const methods = useForm({ defaultValues: defaultValues, resolver: yupResolver(schema) });
   const { handleSubmit } = methods;
 
-  const submitHandler = (body) => {
+  const submitHandler = async (body) => {
     if (body.email && body.password) {
-      loginMutation.mutate(body);
-      const { isSuccess, data } = loginMutation;
-      if (isSuccess) {
-        const token = data.payload.token;
-        localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(data.payload));
-        window.location.reload();
-      }
+      loginAction(body);
     }
   };
 
@@ -92,8 +85,8 @@ function Login({ closeHandler }) {
                   name="password"
                   isRequired={true}
                 />
-                <Button type="submit" className={loginStyles['login-button-2']}>
-                  Login Now
+                <Button type="submit" className={loginStyles['login-button-2']} disabled={loading}>
+                  {!loading ? 'Login Now' : 'Loading...'}
                 </Button>
                 <div className={loginStyles['terms-text']}>
                   By joining, you are agreeing to our{' '}
