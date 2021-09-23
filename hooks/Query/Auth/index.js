@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from 'react-query';
-import { loginService, registerService } from '../../../services';
+import { loginService, registerService, forgotPassService, resetPasswordService } from '../../../services';
 
 const useLoginMutation = () => {
   const [data, setData] = useState(null);
@@ -48,4 +48,12 @@ const useRegisterMutation = () => {
   return [{ data, loading, error }, registerAction];
 };
 
-export { useLoginMutation, useRegisterMutation };
+const useForgotPassMutation = () => {
+  return useMutation(forgotPassService);
+};
+
+const useResetPassMutation = () => {
+  return useMutation(resetPasswordService);
+};
+
+export { useLoginMutation, useRegisterMutation, useForgotPassMutation, useResetPassMutation };

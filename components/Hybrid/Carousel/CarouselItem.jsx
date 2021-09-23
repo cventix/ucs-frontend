@@ -8,17 +8,23 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 const CarouselItem = (props) => {
   const { src, title, description, hoverActionType, itemClassName, link, linkType } = props;
 
-  return (
-    <Fragment>
-      <div className={style['container']}>
-        {linkType === 'play-action' ? (
+  const imageClassNameHandler = () => {
+    switch (hoverActionType) {
+      case 'scaleButton':
+        return `${style['image-scale-holder']} ${style[itemClassName]}`;
+      case 'fadeButton':
+        return `${style['image-fade-holder']} ${style[itemClassName]}`;
+      case 'none':
+        return style[itemClassName];
+    }
+  };
+  const renderSlide = () => {
+    switch (linkType) {
+      case 'play-action': {
+        return (
           <Link href={{ pathname: '/', query: { gallery: 'test' } }}>
             <a className={style['slide-link']}>
-              <div
-                className={`${
-                  hoverActionType === 'scaleButton' ? style['image-scale-holder'] : style['image-fade-holder']
-                } ${style[itemClassName]}`}
-              >
+              <div className={imageClassNameHandler()}>
                 {hoverActionType !== 'none' && (
                   <>
                     <div
@@ -45,25 +51,48 @@ const CarouselItem = (props) => {
               <p className={style.Description}>{description}</p>
             </a>
           </Link>
-        ) : (
+        );
+      }
+      case 'blog': {
+        return (
           <Link href={link}>
             <a className={style['slide-link']}>
               <div className={style[itemClassName]}>
                 {src && (
                   <div className={style['bc-image']}>
                     <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${src})` }}>
-                      <img className="test" src={src} alt={title} />
+                      <img src={src} alt={title} />
                     </div>
                   </div>
                 )}
               </div>
-
-              <h2 className={style.Title}>{title}</h2>
-              <p className={style.Description}>{description}</p>
+              <div>
+                <h2 className={style.Title}>{title}</h2>
+                <p className={style.Description}>{description}</p>
+              </div>
             </a>
           </Link>
-        )}
-      </div>
+        );
+      }
+      case 'single-video-slide': {
+        return (
+          <div className={style['inline-object-slide']}>
+            <div className={style['single-slide-notes']}>
+              <h2 className={style.Title}>{title}</h2>
+              <p className={style.Description}>{description}</p>
+            </div>
+            <div className={style[itemClassName]}>
+              <iframe src={src} scrolling="no" title={title} allow="autoplay; fullscreen"></iframe>
+            </div>
+          </div>
+        );
+      }
+    }
+  };
+
+  return (
+    <Fragment>
+      <div className={style['container']}>{renderSlide()}</div>
     </Fragment>
   );
 };

@@ -45,15 +45,19 @@
   font-weight: 700;
   text-align: center;
   text-decoration: none;
+  &:hover,
+  &:active {
+    color: $ucf_dark;
+  }
 }
 .login-btn {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 4vw;
+  width: auto;
   margin-left: 20px;
-  padding: 10px;
+  padding: 18px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -69,6 +73,10 @@
   line-height: 1;
   font-weight: 700;
   text-align: center;
+  &:hover,
+  &:active {
+    color: $ucf_skyBlueCrayola;
+  }
 }
 
 .popover-wrapper {
@@ -95,7 +103,7 @@
     height: 100px;
     display: none;
   }
-  .popover-wrapper{
+  .popover-wrapper {
     margin-top: 10px;
     border-radius: 3px;
     background-color: $ucf_white;
