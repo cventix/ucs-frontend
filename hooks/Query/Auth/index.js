@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from 'react-query';
+import { toast } from 'react-hot-toast';
 import { loginService, registerService, forgotPassService, resetPasswordService } from '../../../services';
 
 const useLoginMutation = () => {
@@ -38,6 +39,7 @@ const useRegisterMutation = () => {
       .then((response) => {
         setData(response.payload);
         setLoading(false);
+        toast.success('Register is successfully please check your email');
       })
       .catch((err) => {
         setError(err?.response?.data);
