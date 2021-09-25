@@ -12,7 +12,7 @@ import ForgotPassword from './ForgotPassword';
 import { useLoginMutation } from '../../../hooks';
 
 function Login({ closeHandler }) {
-  const [isOPenForgotPass, setIsOPenForgotPass] = useState(false);
+  const [isOPenForgotPass, setIsOpenForgotPass] = useState(false);
   const [{ loading }, loginAction] = useLoginMutation();
   const defaultValues = {
     email: '',
@@ -85,7 +85,8 @@ function Login({ closeHandler }) {
                           tabIndex={0}
                           className={loginStyles['password-link']}
                           onClick={() => {
-                            setIsOPenForgotPass(true);
+                            // closeHandler(false);
+                            setIsOpenForgotPass(true);
                           }}
                         >
                           Forgot your password?
@@ -122,7 +123,7 @@ function Login({ closeHandler }) {
           </div>
         </GeneralDialog>
       </div>
-      {isOPenForgotPass && <ForgotPassword closeHandler={setIsOPenForgotPass} />}
+      {isOPenForgotPass && <ForgotPassword closeHandler={() => setIsOpenForgotPass(false)} />}
     </Fragment>
   );
 }

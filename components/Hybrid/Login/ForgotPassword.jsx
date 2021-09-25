@@ -9,7 +9,7 @@ import TextInput from '../../Infrastructure/Input/TextInput';
 import Button from '../../Infrastructure/Button';
 import { Form } from 'react-bootstrap';
 
-const ForgotPassword = (closeHandler) => {
+const ForgotPassword = ({ closeHandler }) => {
   const forgotPassMutation = useForgotPassMutation();
   const defaultValues = {
     email: '',
