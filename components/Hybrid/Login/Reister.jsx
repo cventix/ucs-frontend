@@ -8,12 +8,10 @@ import GeneralDialog from '../GeneralDialog';
 import Button from '../../Infrastructure/Button';
 import TextInput from '../../Infrastructure/Input/TextInput';
 import { Form, Row } from 'react-bootstrap';
-import { useRegisterMutation } from '../../../hooks/Query';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { useRegisterMutation } from '../../../hooks';
 
 const Register = ({ closeHandler }) => {
-  const registerMutation = useRegisterMutation();
+  const [{ loading }, registerAction] = useRegisterMutation();
   const defaultValues = {
     email: '',
     password: '',
@@ -34,7 +32,7 @@ const Register = ({ closeHandler }) => {
       email: body.email,
       password: body.password,
     };
-    registerMutation.mutate(info);
+    registerAction(info);
   };
   return (
     <div className={loginStyles['login-overlay']} style={{ opacity: 1, display: 'block' }}>
@@ -116,9 +114,8 @@ const Register = ({ closeHandler }) => {
                   />
                 </Row>
 
-                <Button type="submit" className={loginStyles['login-button-2']}>
-                  {registerMutation.isLoading && <FontAwesomeIcon icon={faSpinner} className="fa-spin" />}
-                  Complete Sign up
+                <Button type="submit" className={loginStyles['login-button-2']} disabled={loading}>
+                  {!loading ? 'Complete Sign up' : 'Loading...'}
                 </Button>
                 <div className={loginStyles['terms-text']}>
                   By joining, you are agreeing to our

@@ -14,7 +14,6 @@ const Carousel = (props) => {
 
   const settings = {
     ...props.settings,
-    arrows: true,
     className: sliderStyles['slideContainer'],
   };
 
@@ -27,28 +26,31 @@ const Carousel = (props) => {
       ) : (
         <div className="mt-5" />
       )}
-      <div className={sliderStyles['arrows']}>
-        <button
-          className={sliderStyles['button-arrow']}
-          onClick={() => {
-            const carouselElement = document.querySelector(`.${carouselClassName.replaceAll(/\s/g, '.')}`);
-            const buttonElement = carouselElement.querySelector('.slick-arrow.slick-prev');
-            buttonElement.click();
-          }}
-        >
-          <FontAwesomeIcon className={sliderStyles['icon-slider']} icon={faCaretLeft} />
-        </button>
-        <button
-          className={sliderStyles['button-arrow']}
-          onClick={() => {
-            const carouselElement = document.querySelector(`.${carouselClassName.replaceAll(/\s/g, '.')}`);
-            const buttonElement = carouselElement.querySelector('.slick-arrow.slick-next');
-            buttonElement.click();
-          }}
-        >
-          <FontAwesomeIcon className={sliderStyles['icon-slider']} icon={faCaretRight} />
-        </button>
-      </div>
+      {settings.arrows && (
+        <div className={sliderStyles['arrows']}>
+          <button
+            className={sliderStyles['button-arrow']}
+            onClick={() => {
+              const carouselElement = document.querySelector(`.${carouselClassName.replaceAll(/\s/g, '.')}`);
+              const buttonElement = carouselElement.querySelector('.slick-arrow.slick-prev');
+              buttonElement.click();
+            }}
+          >
+            <FontAwesomeIcon className={sliderStyles['icon-slider']} icon={faCaretLeft} />
+          </button>
+          <button
+            className={sliderStyles['button-arrow']}
+            onClick={() => {
+              const carouselElement = document.querySelector(`.${carouselClassName.replaceAll(/\s/g, '.')}`);
+              const buttonElement = carouselElement.querySelector('.slick-arrow.slick-next');
+              buttonElement.click();
+            }}
+          >
+            <FontAwesomeIcon className={sliderStyles['icon-slider']} icon={faCaretRight} />
+          </button>
+        </div>
+      )}
+
       <Slider {...settings}>
         {items?.length > 0 &&
           items.map((item) => {
@@ -97,6 +99,7 @@ Carousel.defaultProps = {
   hoverActionType: 'none',
   itemClassName: 'medium-square',
   settings: {
+    arrows: true,
     dots: false,
     infinite: false,
     speed: 500,

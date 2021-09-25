@@ -13,7 +13,7 @@ const Blogs = () => {
       titleClassName={style['carousel-heading']}
       items={items}
       itemClassName="medium-square"
-      linkType="link"
+      linkType="blog"
     />
   );
 };

@@ -17,13 +17,13 @@ const TextInput = ({
   placeholder,
   colXs,
   colXl,
+  readOnly,
+  defaultValue,
 }) => {
   const {
     control,
     formState: { errors },
   } = useFormContext();
-
-  console.log(errors);
 
   return (
     <Col xs={colXs} md={colXl} className={styles['field-wrapper']}>
@@ -38,12 +38,13 @@ const TextInput = ({
             </FormLabel>
             <FormControl
               id={id}
-              value={value}
+              value={value ? value : defaultValue}
               ref={ref}
               onChange={onChange}
               onBlur={onBlur}
               type={type}
               name={name}
+              readOnly={readOnly}
               className={`${inputClassName} ${styles['w-input']} ${errors?.[name]?.message && styles['input-error']}`}
               maxLength={maxLength}
               placeholder={placeholder}
@@ -73,6 +74,7 @@ TextInput.propTypes = {
   hasExtraTag: PropTypes.bool,
   extraTag: PropTypes.node,
   placeholder: PropTypes.string,
+  readOnly: PropTypes.bool,
 };
 TextInput.defaultProps = {
   id: '',
@@ -91,5 +93,6 @@ TextInput.defaultProps = {
   placeholder: '',
   colXs: 12,
   colXl: 12,
+  readOnly: false,
 };
 export default TextInput;

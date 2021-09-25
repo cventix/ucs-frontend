@@ -10,4 +10,14 @@ const registerService = async (body) => {
   return data;
 };
 
-export { loginService, registerService };
+const forgotPassService = async (body) => {
+  const data = await axiosClient.post(`/auth/forgot`, body);
+  return data;
+};
+
+const resetPasswordService = async (body) => {
+  const data = await axiosClient.post(`/auth/reset`, body);
+  return data;
+};
+
+export { loginService, registerService, forgotPassService, resetPasswordService };
