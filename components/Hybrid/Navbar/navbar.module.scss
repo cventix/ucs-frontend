@@ -102,29 +102,45 @@
     width: 100px;
     height: 100px;
     display: none;
+    padding: 0;
   }
-  .popover-wrapper {
+  .popover-item-wrapper {
     margin-top: 10px;
+    padding: 0;
     border-radius: 3px;
     background-color: $ucf_white;
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     overflow: hidden;
+    &.logout {
+      border-left: 5px solid $ucf_patentBlue;
+    }
   }
   .popover-item {
     display: block;
     width: 100%;
     background-color: transparent;
-    color: $ucf_dark;
     text-align: center;
     padding: 10px 0;
     border-radius: 0;
     transition: all 0.2s ease;
     &:hover,
     &:active {
-      background-color: $ucf_skyBlueCrayola;
+      background-color: $ucf_whiteSmoke;
       color: $ucf_blackBlue;
+      svg {
+        color: $ucf_amaranth;
+      }
+    }
+    svg {
+      margin-right: 5px;
+      font-size: 14px;
+      color: $ucf_dark;
+    }
+    span {
+      color: $ucf_dark;
+      display: inline-block;
     }
   }
 }
