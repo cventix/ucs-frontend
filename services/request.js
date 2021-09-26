@@ -17,6 +17,9 @@ axiosClient.interceptors.response.use(
     if (res.status === 401 || res.status === 403) {
       console.log('unauthorized');
     }
+    if (error.response.status === 404) {
+      console.log(`not found`);
+    }
     return error;
   },
 );
