@@ -1,23 +1,19 @@
 import axiosClient from '../request';
 
 const loginService = async (body) => {
-  const { data } = await axiosClient.post(`auth/login`, body);
-  return data;
+  return axiosClient.post(`/auth/login`, body);
 };
 
 const registerService = async (body) => {
-  const { data } = await axiosClient.post(`auth/register`, body);
-  return data;
+  return axiosClient.post(`/auth/register`, body);
 };
 
 const forgotPassService = async (body) => {
-  const data = await axiosClient.post(`/auth/forgot`, body);
-  return data;
+  return await axiosClient.post(`/auth/forgot`, body);
 };
 
 const resetPasswordService = async (body) => {
-  const data = await axiosClient.post(`/auth/reset`, body);
-  return data;
+  return await axiosClient.post(`/auth/reset`, body);
 };
 
 export { loginService, registerService, forgotPassService, resetPasswordService };
