@@ -1,53 +1,61 @@
-import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { toast } from 'react-hot-toast';
 import { loginService, registerService, forgotPassService, resetPasswordService } from '../../../services';
 
-const useLoginMutation = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+export const useLogin = () => {
+  const { mutateAsync, isLoading, isError, isSuccess } = useMutation((payload) => loginService(payload));
 
-  const loginAction = (formData) => {
-    setLoading(true);
-    loginService(formData)
-      .then((response) => {
-        setData(response.payload);
-        setLoading(false);
-        const token = response.payload.token;
-        localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(response.payload));
+  const login = async (payload) => {
+    let toastId;
+    try {
+      toastId = toast.loading('Loading...');
+      const { data } = await mutateAsync(payload);
+      if (!data) throw new Error('Unauthenticated');
+
+      // Set user data
+      const token = data.payload.token;
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(data.payload));
+      toast.success('Logged in successfully', { id: toastId });
+
+      setTimeout(() => {
         window.location.reload();
-      })
-      .catch((err) => {
-        setError(err?.response?.data);
-        setLoading(false);
-      });
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message, { id: toastId });
+    }
   };
 
-  return [{ data, loading, error }, loginAction];
+  return { login, isLoading, isError, isSuccess };
 };
 
-const useRegisterMutation = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+export const useRegister = () => {
+  const { mutateAsync, isLoading, isError, isSuccess } = useMutation((payload) => registerService(payload));
 
-  const registerAction = (formData) => {
-    setLoading(true);
-    registerService(formData)
-      .then((response) => {
-        setData(response.payload);
-        setLoading(false);
-        toast.success('Register is successfully please check your email');
-      })
-      .catch((err) => {
-        setError(err?.response?.data);
-        setLoading(false);
-      });
+  const register = async (payload) => {
+    let toastId;
+    try {
+      toastId = toast.loading('Loading...');
+      const { data } = await mutateAsync(payload);
+      if (!data) throw new Error('Register was unsuccessful');
+
+      // Set data
+      const token = data.payload.token;
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(data.payload));
+      toast.success('Registered successfully', { id: toastId });
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message, { id: toastId });
+    }
   };
 
-  return [{ data, loading, error }, registerAction];
+  return { register, isLoading, isError, isSuccess };
 };
 
 const useForgotPassMutation = () => {
@@ -58,4 +66,4 @@ const useResetPassMutation = () => {
   return useMutation(resetPasswordService);
 };
 
-export { useLoginMutation, useRegisterMutation, useForgotPassMutation, useResetPassMutation };
+export { useForgotPassMutation, useResetPassMutation };

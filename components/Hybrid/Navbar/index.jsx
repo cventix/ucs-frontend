@@ -3,7 +3,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import Link from 'next/link';
 import navStyles from './navbar.module.scss';
 import Login from '../Login';
-import Register from '../Login/Reister';
+import Register from '../Login/Register';
 import UserItems from './UserItems';
 
 function Navbar(props) {

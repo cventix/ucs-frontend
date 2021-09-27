@@ -8,10 +8,10 @@ import GeneralDialog from '../GeneralDialog';
 import Button from '../../Infrastructure/Button';
 import TextInput from '../../Infrastructure/Input/TextInput';
 import { Form, Row } from 'react-bootstrap';
-import { useRegisterMutation } from '../../../hooks';
+import { useRegister } from '../../../hooks';
 
 const Register = ({ closeHandler }) => {
-  const [{ loading }, registerAction] = useRegisterMutation();
+  const { register, isLoading, isError, isSuccess } = useRegister();
   const defaultValues = {
     email: '',
     password: '',
@@ -26,14 +26,16 @@ const Register = ({ closeHandler }) => {
 
   const methods = useForm({ defaultValues: defaultValues, resolver: yupResolver(schema) });
   const { handleSubmit } = methods;
-  const submitHandler = (body) => {
+
+  const submitHandler = async (body) => {
     const info = {
       name: `${body.firstName} ${body.lastName}`,
       email: body.email,
       password: body.password,
     };
-    registerAction(info);
+    await register(info);
   };
+
   return (
     <div className={loginStyles['login-overlay']} style={{ opacity: 1, display: 'block' }}>
       <GeneralDialog closeHandler={closeHandler}>
@@ -114,8 +116,8 @@ const Register = ({ closeHandler }) => {
                   />
                 </Row>
 
-                <Button type="submit" className={loginStyles['login-button-2']} disabled={loading}>
-                  {!loading ? 'Complete Sign up' : 'Loading...'}
+                <Button type="submit" className={loginStyles['login-button-2']} disabled={isLoading}>
+                  {!isLoading ? 'Complete Sign up' : 'Loading...'}
                 </Button>
                 <div className={loginStyles['terms-text']}>
                   By joining, you are agreeing to our
@@ -129,12 +131,16 @@ const Register = ({ closeHandler }) => {
                 </div>
               </Form>
             </FormProvider>
-            <div className="hide w-form-done">
-              <div>Thank you! Your submission has been received!</div>
-            </div>
-            <div className="hide w-form-fail">
-              <div>Oops! Something went wrong while submitting the form.</div>
-            </div>
+            {isSuccess && (
+              <div className="w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+            )}
+            {isError && (
+              <div className="hide w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
+            )}
           </div>
         </div>
       </GeneralDialog>
