@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 const CarouselItem = (props) => {
-  const { src, title, description, hoverActionType, itemClassName, link, linkType } = props;
+  const { img, title, description, hoverActionType, itemClassName, link, linkType } = props;
 
   const imageClassNameHandler = () => {
     switch (hoverActionType) {
@@ -38,10 +38,10 @@ const CarouselItem = (props) => {
                     </div>
                   </>
                 )}
-                {src && (
+                {img?.url && (
                   <div className={style['bc-image']}>
-                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${src})` }}>
-                      <img className="test" src={src} alt={title} />
+                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${img.url})` }}>
+                      <img className="test" src={img.url} alt={img.alt} fieldId={img.fieldId} />
                     </div>
                   </div>
                 )}
@@ -58,10 +58,10 @@ const CarouselItem = (props) => {
           <Link href={link}>
             <a className={style['slide-link']}>
               <div className={style[itemClassName]}>
-                {src && (
+                {img?.url && (
                   <div className={style['bc-image']}>
-                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${src})` }}>
-                      <img src={src} alt={title} />
+                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${img.url})` }}>
+                      <img src={img.url} alt={img.alt} fieldId={img.fieldId} />
                     </div>
                   </div>
                 )}
@@ -82,7 +82,7 @@ const CarouselItem = (props) => {
               <p className={style.Description}>{description}</p>
             </div>
             <div className={style[itemClassName]}>
-              <iframe src={src} scrolling="no" title={title} allow="autoplay; fullscreen"></iframe>
+              <iframe src={img} scrolling="no" title={title} allow="autoplay; fullscreen"></iframe>
             </div>
           </div>
         );
@@ -98,7 +98,11 @@ const CarouselItem = (props) => {
 };
 
 CarouselItem.propTypes = {
-  src: PropTypes.string,
+  img: PropTypes.objectOf({
+    url: PropTypes.string,
+    alt: PropTypes.string,
+    fieldId: PropTypes.string,
+  }),
   title: PropTypes.string,
   description: PropTypes.string,
   onClick: PropTypes.func,
@@ -109,7 +113,11 @@ CarouselItem.propTypes = {
 };
 
 CarouselItem.defaultProps = {
-  src: '',
+  img: {
+    url: '',
+    alt: 'img-slider',
+    fieldId: '',
+  },
   title: '',
   description: '',
   onClick: () => {},

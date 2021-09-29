@@ -1,59 +1,17 @@
-export const items = [
-  {
-    id: 1,
-    src: '/images/padcast-slider.webp',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 2,
-    src: '/images/padcast-slider.webp',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 3,
-    src: '/images/padcast-slider.webp',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 4,
-    src: '/images/padcast-slider.webp',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 5,
-    src: '/images/padcast-slider.webp',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 6,
-    src: '/images/padcast-slider.webp',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 7,
-    src: '/images/padcast-slider.webp',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 8,
-    src: '/images/padcast-slider.webp',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 9,
-    src: '/images/padcast-slider.webp',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-];
+export const items = (data) => {
+  const itemList = [];
+  data &&
+    Object.keys(data).forEach((index) => {
+      itemList.push({
+        id: data[index]._id,
+        // img: data[index].hero,
+        title: data[index].name,
+        description: data[index].summary,
+        link: '#',
+      });
+    });
+  return itemList;
+};
 
 export const settings = {
   dots: true,

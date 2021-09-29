@@ -1,35 +1,6 @@
-export const items = [
-  {
-    id: 1,
-    src: '/images/transformed-slider1.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 2,
-    src: '/images/transformed-slider2.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 3,
-    src: '/images/transformed-slider3.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 4,
-    src: '/images/transformed-slider4.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 5,
-    src: '/images/transformed-slider5.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-];
+export const items = (data) => {
+  console.log(data);
+};
 
 export const settings = {
   dots: false,
