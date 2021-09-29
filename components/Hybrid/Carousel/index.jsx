@@ -57,7 +57,7 @@ const Carousel = (props) => {
             return (
               <CarouselItem
                 key={item.id}
-                src={item.src}
+                img={item.img}
                 title={item.title}
                 description={item.description}
                 link={item.link}
