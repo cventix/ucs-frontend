@@ -34,6 +34,9 @@ axiosClient.interceptors.response.use(
     } else {
       // toast.error(error.message, { id: toastId });
     }
+    if (error.response.status === 404) {
+      console.log(`not found`);
+    }
     return error;
   },
 );

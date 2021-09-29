@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -7,13 +7,16 @@ import loginStyles from './login.module.scss';
 import { useForgotPassMutation } from '../../../hooks/Query/Auth';
 import TextInput from '../../Infrastructure/Input/TextInput';
 import Button from '../../Infrastructure/Button';
-import { Form } from 'react-bootstrap';
+import { Alert, Form } from 'react-bootstrap';
 
 const ForgotPassword = ({ closeHandler }) => {
   const forgotPassMutation = useForgotPassMutation();
+  const [isLoading, setIsLoading] = useState(false);
   const defaultValues = {
     email: '',
   };
+
+  const [notification, setNotification] = useState({ show: false, variant: 'primary', content: '' });
 
   const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -24,12 +27,37 @@ const ForgotPassword = ({ closeHandler }) => {
 
   const submitHandler = (body) => {
     if (body.email) {
-      forgotPassMutation.mutate(body);
-      const { isSuccess } = forgotPassMutation;
-      if (isSuccess) {
-        console.log('success');
-      } else console.log('failed');
+      forgotPassMutation.mutateAsync(body);
+      setIsLoading(true);
     }
+  };
+
+  useEffect(() => {
+    if (forgotPassMutation.isSuccess && !forgotPassMutation.isIdle) {
+      setNotification({ show: true, variant: 'success', content: "Sent reset link to you're email" });
+      console.log(forgotPassMutation);
+      setTimeout(() => {
+        onCloseNotif();
+        setIsLoading(false);
+        closeHandler(false);
+      }, [3000]);
+    }
+  }, [forgotPassMutation.isSuccess]);
+
+  useEffect(() => {
+    if (forgotPassMutation.isError && !forgotPassMutation.isIdle) {
+      setNotification({ show: true, variant: 'danger', content: "Email isn't exist" });
+      setTimeout(() => {
+        onCloseNotif();
+      }, [5000]);
+    }
+  }, [forgotPassMutation.isError]);
+
+  const onCloseNotif = () => {
+    setNotification({
+      ...notification,
+      show: false,
+    });
   };
   return (
     <div className={loginStyles['login-overlay']} style={{ opacity: 1, display: 'block' }}>
@@ -45,9 +73,6 @@ const ForgotPassword = ({ closeHandler }) => {
               ms-login="true"
               className={loginStyles['ms-password-padding']}
             >
-              <div className={loginStyles['ms-password-top-text']} ms-lang="reset_steps_1">
-                Step 1 of 2
-              </div>
               <div className={loginStyles['ms-password-h1']} ms-lang="reset_your_password">
                 Reset your password
               </div>
@@ -55,6 +80,14 @@ const ForgotPassword = ({ closeHandler }) => {
                 Enter your email address, and we will send instructions to reset your password.
                 <br />
               </div>
+              {notification?.show && (
+                <Alert className={loginStyles['show-notif']} variant={notification.variant}>
+                  <button type="button" className="btn" onClick={onCloseNotif}>
+                    <span aria-hidden="true">×</span>
+                  </button>
+                  {notification.content}
+                </Alert>
+              )}
               <TextInput
                 type="email"
                 id="email-2"
@@ -66,6 +99,9 @@ const ForgotPassword = ({ closeHandler }) => {
                 isRequired={true}
               />
               <Button type="submit" className={loginStyles['ms-password-button']}>
+                {isLoading && (
+                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                )}
                 Send Password Reset Email
               </Button>
             </Form>

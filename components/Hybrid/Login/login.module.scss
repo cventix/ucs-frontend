@@ -243,7 +243,14 @@
   opacity: 0.85;
   line-height: 1.5;
 }
+.show-notif {
+  text-align: left;
+  width: 80%;
+  margin: 10px auto;
+  font-size: 14px;
+  padding: 10px;
 
+}
 @media screen and (max-width: 767px) {
   .login-overlay {
     .login-container {
