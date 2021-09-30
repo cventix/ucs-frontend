@@ -22,7 +22,7 @@ const CarouselItem = (props) => {
     switch (linkType) {
       case 'play-action': {
         return (
-          <Link href={{ pathname: '/', query: { gallery: 'test' } }}>
+          <Link href={{ pathname: '/', query: { gallery: link } }}>
             <a className={style['slide-link']}>
               <div className={imageClassNameHandler()}>
                 {hoverActionType !== 'none' && (
@@ -55,7 +55,7 @@ const CarouselItem = (props) => {
       }
       case 'blog': {
         return (
-          <Link href={link}>
+          <Link href={{ pathname: `/blog/${[link]}` }}>
             <a className={style['slide-link']}>
               <div className={style[itemClassName]}>
                 {img?.url && (

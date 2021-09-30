@@ -6,7 +6,7 @@ export const items = (data) => {
         id: element._id,
         img: element['channel-thumnails'],
         title: element.name,
-        link: '#',
+        link: element.slug,
       });
     });
   return itemList;

@@ -7,7 +7,7 @@ export const items = (data) => {
         img: element['channel-thumnails'],
         title: element.name,
         description: element.summary,
-        link: '#',
+        link: element.slug,
       });
     });
   return itemList;
