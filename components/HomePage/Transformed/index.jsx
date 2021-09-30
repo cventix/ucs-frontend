@@ -4,9 +4,10 @@ import editorStyle from './transformed.module.scss';
 import style from '../../../assets/styles/styles.webflow.module.scss';
 import { items, settings } from './items';
 import { useTransformedMutation } from '../../../hooks/Query/cms';
+import axios from 'axios';
 
-const Transformed = () => {
-  const { data: transformedResult, isLoading, error } = useTransformedMutation();
+const Transformed = (props) => {
+  const { data: transformedResult, isLoading, error } = useTransformedMutation(props.posts);
   useEffect(() => {
     error && console.log(error);
   }, [error]);
@@ -28,6 +29,12 @@ const Transformed = () => {
       )}
     </>
   );
+};
+
+Transformed.getInitialProps = async () => {
+  const res = await axios('api/cms/china-transformed');
+  const data = await res.json();
+  return { posts: data };
 };
 
 export default Transformed;

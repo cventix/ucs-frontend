@@ -4,6 +4,7 @@ import editorStyle from './podcasts.module.scss';
 import style from '../../../assets/styles/styles.webflow.module.scss';
 import { items, settings } from './items';
 import { usePodcastMutation } from '../../../hooks/Query/cms';
+import axios from 'axios';
 const Podcasts = () => {
   const { data: podcastsResult, isLoading, error } = usePodcastMutation();
   useEffect(() => {
@@ -28,5 +29,9 @@ const Podcasts = () => {
     </>
   );
 };
-
+Podcasts.getInitialProps = async () => {
+  const res = await axios('api/cms/podcasts');
+  const data = await res.json();
+  return { posts: data };
+};
 export default Podcasts;

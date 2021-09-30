@@ -4,9 +4,10 @@ import editorStyle from './thematic.module.scss';
 import style from '../../../assets/styles/styles.webflow.module.scss';
 import { items, settings } from './items';
 import { useThematicMutation } from '../../../hooks/Query/cms';
+import axios from 'axios';
 
-const Thematic = () => {
-  const { data: thematicResult, isLoading, error } = useThematicMutation();
+const Thematic = (props) => {
+  const { data: thematicResult, isLoading, error } = useThematicMutation(props.posts);
   useEffect(() => {
     error && console.log(error);
   }, [error]);
@@ -28,6 +29,12 @@ const Thematic = () => {
       )}
     </>
   );
+};
+
+Thematic.getInitialProps = async () => {
+  const res = await axios('api/cms/thematic');
+  const data = await res.json();
+  return { posts: data };
 };
 
 export default Thematic;

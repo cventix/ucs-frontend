@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useQuery } from 'react-query';
 
-const useBlogMutation = () => {
-  return useQuery('blog', () => axios.get('api/cms/blog'));
+const useBlogMutation = (initialdata) => {
+  return useQuery('blog', () => axios.get('api/cms/blog'), initialdata);
 };
 
 const useEditorsPicksMutation = () => {
@@ -18,6 +18,6 @@ const useThematicMutation = () => {
 };
 
 const useTransformedMutation = () => {
-  return useQuery('transformed', () => axios.get('api/cms/transformed'));
+  return useQuery('transformed', () => axios.get('api/cms/china-transformed'));
 };
 export { useBlogMutation, useEditorsPicksMutation, usePodcastMutation, useThematicMutation, useTransformedMutation };

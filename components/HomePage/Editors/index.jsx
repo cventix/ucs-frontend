@@ -4,9 +4,10 @@ import editorStyle from './Editor.module.scss';
 import style from '../../../assets/styles/styles.webflow.module.scss';
 import { items, settings } from './items';
 import { useEditorsPicksMutation } from '../../../hooks/Query/cms';
+import axios from 'axios';
 
-const EditorsPicks = () => {
-  const { data: editorsResult, isLoading, error } = useEditorsPicksMutation();
+const EditorsPicks = (props) => {
+  const { data: editorsResult, isLoading, error } = useEditorsPicksMutation(props.posts);
   useEffect(() => {
     error && console.log(error);
   }, [error]);
@@ -28,6 +29,12 @@ const EditorsPicks = () => {
       )}
     </>
   );
+};
+
+EditorsPicks.getInitialProps = async () => {
+  const res = await axios('api/cms/editors-picks');
+  const data = await res.json();
+  return { posts: data };
 };
 
 export default EditorsPicks;

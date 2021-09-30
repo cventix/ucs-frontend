@@ -4,9 +4,11 @@ import { items, settings } from './items';
 import editorStyle from './Blogs.module.scss';
 import style from '../../../assets/styles/styles.webflow.module.scss';
 import { useBlogMutation } from '../../../hooks/Query/cms';
+import axios from 'axios';
 
-const Blogs = () => {
-  const { data: blogResult, isLoading, error } = useBlogMutation();
+const Blogs = (props) => {
+  const { data: blogResult, isLoading, error } = useBlogMutation(props.posts);
+
   useEffect(() => {
     error && console.log(error);
   }, [error]);
@@ -27,6 +29,11 @@ const Blogs = () => {
       )}
     </>
   );
+};
+Blogs.getInitialProps = async () => {
+  const res = await axios('api/cms/blog');
+  const data = await res.json();
+  return { posts: data };
 };
 
 export default Blogs;

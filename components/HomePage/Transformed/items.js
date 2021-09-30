@@ -1,7 +1,17 @@
 export const items = (data) => {
-  console.log(data);
+  const itemList = [];
+  data &&
+    Object.values(data).forEach((element) => {
+      itemList.push({
+        id: element._id,
+        img: element['channel-thumnails'],
+        title: element.name,
+        description: element.summary,
+        link: '#',
+      });
+    });
+  return itemList;
 };
-
 export const settings = {
   dots: false,
   infinite: false,

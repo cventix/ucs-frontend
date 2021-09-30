@@ -1,12 +1,12 @@
 export const items = (data) => {
   const itemList = [];
   data &&
-    Object.keys(data).forEach((index) => {
+    Object.values(data).forEach((element) => {
       itemList.push({
-        id: data[index]._id,
-        // img: data[index].hero,
-        title: data[index].name,
-        description: data[index].summary,
+        id: element._id,
+        img: element['channel-thumnails'],
+        title: element.name,
+        description: element.summary,
         link: '#',
       });
     });
