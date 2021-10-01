@@ -2,7 +2,7 @@ import axios from 'axios';
 // import toast from 'react-hot-toast';
 
 const axiosClient = axios.create({
-  baseURL: `https://core.pte.irantoptal.com/api/v1`,
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
