@@ -1,41 +1,16 @@
-export const items = [
-  {
-    id: 1,
-    src: '/images/thematic-slider1.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 2,
-    src: '/images/thematic-slider2.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 3,
-    src: '/images/thematic-slider3.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 4,
-    src: '/images/thematic-slider4.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 5,
-    src: '/images/thematic-slider5.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-  {
-    id: 6,
-    src: '/images/thematic-slider3.jpg',
-    title: 'Podcast - Louis Gave',
-    description: 'August 5 - Clay Shirky: New York University',
-  },
-];
+export const items = (data) => {
+  const itemList = [];
+  data &&
+    Object.keys(data).forEach((index) => {
+      itemList.push({
+        id: data[index]._id,
+        // img: data[index].hero,
+        title: data[index].name,
+        link: '#',
+      });
+    });
+  return itemList;
+};
 
 export const settings = {
   dots: true,
