@@ -1,10 +1,21 @@
 export const items = (data) => {
-  console.log(data);
+  const itemList = [];
+  data &&
+    Object.values(data).forEach((element) => {
+      itemList.push({
+        id: element._id,
+        img: element.img,
+        title: element.title,
+        description: element.description,
+        link: element.slug,
+      });
+    });
+  return itemList;
 };
-
 export const settings = {
   dots: false,
   infinite: false,
+  arrows: true,
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 1,
