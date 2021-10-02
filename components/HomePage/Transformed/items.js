@@ -7,7 +7,7 @@ export const items = (data) => {
         img: element.img,
         title: element.title,
         description: element.description,
-        link: element.slug,
+        link: element['wistia-key'],
       });
     });
   return itemList;
