@@ -1,4 +1,4 @@
-import { cmsClient } from '../../../services/cms';
+import { cmsClient } from '../../../../services/cms';
 
 const BLOG_COLLECTION_ID = '60f18887c46014ca7a98b45f';
 

@@ -1,12 +1,12 @@
 export const items = (data) => {
   const itemList = [];
   data &&
-    Object.keys(data).forEach((index) => {
+    Object.values(data).forEach((element) => {
       itemList.push({
-        id: data[index]._id,
-        // img: data[index].hero,
-        title: data[index].name,
-        link: '#',
+        id: element._id,
+        img: element['channel-thumnails'].url,
+        title: element.name,
+        link: element.slug,
       });
     });
   return itemList;
@@ -15,6 +15,7 @@ export const items = (data) => {
 export const settings = {
   dots: true,
   infinite: true,
+  arrows: true,
   speed: 500,
   slidesToShow: 5,
   slidesToScroll: 1,

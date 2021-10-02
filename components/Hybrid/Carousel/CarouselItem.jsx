@@ -22,7 +22,7 @@ const CarouselItem = (props) => {
     switch (linkType) {
       case 'play-action': {
         return (
-          <Link href={{ pathname: '/', query: { gallery: 'test' } }}>
+          <Link href={{ pathname: '/', query: { gallery: link } }}>
             <a className={style['slide-link']}>
               <div className={imageClassNameHandler()}>
                 {hoverActionType !== 'none' && (
@@ -38,13 +38,11 @@ const CarouselItem = (props) => {
                     </div>
                   </>
                 )}
-                {img?.url && (
-                  <div className={style['bc-image']}>
-                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${img.url})` }}>
-                      <img className="test" src={img.url} alt={img.alt} fieldId={img.fieldId} />
-                    </div>
+                <div className={style['bc-image']}>
+                  <div className={style['bc-image__wrapper']}>
+                    <img className="test" src={img} alt={img.title} />
                   </div>
-                )}
+                </div>
               </div>
 
               <h2 className={style.Title}>{title}</h2>
@@ -55,13 +53,13 @@ const CarouselItem = (props) => {
       }
       case 'blog': {
         return (
-          <Link href={link}>
+          <Link href={{ pathname: `/blog/${[link]}` }}>
             <a className={style['slide-link']}>
               <div className={style[itemClassName]}>
-                {img?.url && (
+                {img && (
                   <div className={style['bc-image']}>
-                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${img.url})` }}>
-                      <img src={img.url} alt={img.alt} fieldId={img.fieldId} />
+                    <div className={style['bc-image__wrapper']}>
+                      <img src={img} alt={img.title} id={img.fieldId} />
                     </div>
                   </div>
                 )}
