@@ -38,13 +38,13 @@ const CarouselItem = (props) => {
                     </div>
                   </>
                 )}
-                {img?.url && (
-                  <div className={style['bc-image']}>
-                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${img.url})` }}>
-                      <img className="test" src={img.url} alt={img.alt} fieldId={img.fieldId} />
-                    </div>
+
+                <div className={style['bc-image']}>
+                  {console.log(title, img)}
+                  <div className={style['bc-image__wrapper']}>
+                    <img className="test" src={img.url} alt={img.alt} id={img.fieldId} />
                   </div>
-                )}
+                </div>
               </div>
 
               <h2 className={style.Title}>{title}</h2>
@@ -60,8 +60,8 @@ const CarouselItem = (props) => {
               <div className={style[itemClassName]}>
                 {img?.url && (
                   <div className={style['bc-image']}>
-                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${img.url})` }}>
-                      <img src={img.url} alt={img.alt} fieldId={img.fieldId} />
+                    <div className={style['bc-image__wrapper']}>
+                      <img src={img.url} alt={img.alt} id={img.fieldId} />
                     </div>
                   </div>
                 )}

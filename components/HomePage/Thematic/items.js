@@ -15,6 +15,7 @@ export const items = (data) => {
 export const settings = {
   dots: true,
   infinite: true,
+  arrows: true,
   speed: 500,
   slidesToShow: 5,
   slidesToScroll: 1,
