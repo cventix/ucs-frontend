@@ -3,7 +3,34 @@ import Layout from '../../layout';
 import blogStyle from './blog.module.scss';
 import style from '../../assets/styles/styles.webflow.module.scss';
 
-const DetailBlog = () => {
+// const blogDetail = ({ blogItem }) => {
+//   return <h1 style={{ color: '#fff' }}>{blogItem}</h1>;
+// };
+
+// export const getStaticPaths = async () => {
+//   const data = await (await fetch(`http://localhost:3000/api/cms/blog`)).json();
+
+//   console.log(data);
+
+//   const paths = Object.values(data).map((element) => {
+//     return { params: element };
+//   });
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+
+// export const getStaticProps = async (ctx) => {
+//   console.log(ctx);
+//   const id = ctx.params.id;
+
+//   return {
+//     props: { blogItem: id },
+//   };
+// };
+
+const DetailBlog = ({ blogItem }) => {
   return (
     <Layout>
       <div className="wf-section">
@@ -18,7 +45,8 @@ const DetailBlog = () => {
               sizes="(max-width: 479px) 89vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, 90vw"
             />
             <h1 className={blogStyle['title']}>
-              SaaS in China: Build a compliant go-to-market plan by looking beyond the regulations
+              {/* SaaS in China: Build a compliant go-to-market plan by looking beyond the regulations */}
+              {blogItem}
             </h1>
             <div className={blogStyle['author']}>
               Chris DeAngelis - Partner and General Manager of Alliance Development Group (ADG), Beijing

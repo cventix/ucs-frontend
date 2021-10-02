@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 const CarouselItem = (props) => {
-  const { img, title, description, hoverActionType, itemClassName, link, linkType } = props;
+  const { img, id, title, description, hoverActionType, itemClassName, query, linkType } = props;
 
   const imageClassNameHandler = () => {
     switch (hoverActionType) {
@@ -22,7 +22,7 @@ const CarouselItem = (props) => {
     switch (linkType) {
       case 'play-action': {
         return (
-          <Link href={{ pathname: '/', query: { gallery: 'test' } }}>
+          <Link href={{ pathname: '/', query: { gallery: query } }}>
             <a className={style['slide-link']}>
               <div className={imageClassNameHandler()}>
                 {hoverActionType !== 'none' && (
@@ -38,13 +38,11 @@ const CarouselItem = (props) => {
                     </div>
                   </>
                 )}
-                {img?.url && (
-                  <div className={style['bc-image']}>
-                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${img.url})` }}>
-                      <img className="test" src={img.url} alt={img.alt} fieldId={img.fieldId} />
-                    </div>
+                <div className={style['bc-image']}>
+                  <div className={style['bc-image__wrapper']}>
+                    <img className="test" src={img} alt={img.title} />
                   </div>
-                )}
+                </div>
               </div>
 
               <h2 className={style.Title}>{title}</h2>
@@ -54,14 +52,16 @@ const CarouselItem = (props) => {
         );
       }
       case 'blog': {
+        console.log(props);
+        console.log(query);
         return (
-          <Link href={link}>
+          <Link href={{ pathname: `/blog/${[id]}`, query: { slug: [query] } }}>
             <a className={style['slide-link']}>
               <div className={style[itemClassName]}>
-                {img?.url && (
+                {img && (
                   <div className={style['bc-image']}>
-                    <div className={style['bc-image__wrapper']} style={{ backgroundImage: `url(${img.url})` }}>
-                      <img src={img.url} alt={img.alt} fieldId={img.fieldId} />
+                    <div className={style['bc-image__wrapper']}>
+                      <img src={img} alt={img.title} id={img.fieldId} />
                     </div>
                   </div>
                 )}
@@ -103,12 +103,13 @@ CarouselItem.propTypes = {
     alt: PropTypes.string,
     fieldId: PropTypes.string,
   }),
+  id: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   onClick: PropTypes.func,
   hoverActionType: PropTypes.string,
   linkType: PropTypes.string,
-  link: PropTypes.string,
+  query: PropTypes.string,
   itemClassName: PropTypes.string,
 };
 
@@ -118,12 +119,13 @@ CarouselItem.defaultProps = {
     alt: 'img-slider',
     fieldId: '',
   },
+  id: '',
   title: '',
   description: '',
   onClick: () => {},
   hoverActionType: 'none',
   linkType: 'normal',
-  link: '#',
+  query: '',
   itemClassName: 'medium-square',
 };
 
