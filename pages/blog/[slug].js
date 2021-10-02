@@ -5,7 +5,7 @@ const blogDetail = ({ blogItem }) => {
 };
 
 export const getStaticPaths = async () => {
-  const data = await (await fetch(`http://localhost:3000/api/cms/blog`)).json();
+  const data = await (await fetch(`/api/cms/blog`)).json();
 
   const paths = Object.values(data).map((element) => {
     return { params: element };
