@@ -6,8 +6,6 @@ import Layout from '../layout';
 import HomeSections from '../components/HomePage';
 
 export default function Home(props) {
-  console.log('#props', props);
-
   const { query } = useRouter();
   const { wchannelid } = query;
 
@@ -28,7 +26,7 @@ export default function Home(props) {
 
   return (
     <Layout>
-      <HomeSections />
+      <HomeSections sectionData={props} />
     </Layout>
   );
 }

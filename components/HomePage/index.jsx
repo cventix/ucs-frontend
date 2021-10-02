@@ -10,7 +10,8 @@ import Transformed from './Transformed';
 import { useRouter } from 'next/router';
 import DialogGallery from '../Hybrid/DialogGallery';
 
-const HomeSections = () => {
+const HomeSections = ({ sectionData }) => {
+  console.log('data', sectionData);
   const router = useRouter();
   const { gallery } = router.query;
   const [openDialogGalley, setOpenDialogGalley] = useState(false);
@@ -86,11 +87,11 @@ const HomeSections = () => {
         </div>
       </div>
       <div className={homeStyles['bg-wrapper']}>
-        <EditorCarousel />
-        <Podcasts />
-        <Blogs />
-        <Thematic />
-        <Transformed />
+        {sectionData?.editorPicks?.length > 0 && <EditorCarousel data={sectionData?.editorPicks} />}
+        {sectionData?.podcasts?.length > 0 && <Podcasts data={sectionData?.podcasts} />}
+        {sectionData?.blogPosts?.length > 0 && <Blogs data={sectionData?.blogPosts} />}
+        {sectionData?.thematics?.length > 0 && <Thematic data={sectionData?.thematics} />}
+        {sectionData?.transformed?.length > 0 && <Transformed data={sectionData?.transformed} />}
         <Button className={`${homeStyles['signup-button']} w-inline-block`}>
           <div className={styles['text-block-25']}>Sign Up Today For Your Complimentary 30-Day Trial</div>
         </Button>
