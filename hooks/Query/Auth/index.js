@@ -8,8 +8,9 @@ export const useLogin = () => {
   const login = async (payload) => {
     let toastId;
     try {
+      const { email, password } = payload;
       toastId = toast.loading('Loading...');
-      const { data } = await mutateAsync(payload);
+      const { data } = await mutateAsync({ username: email, password });
       if (!data) throw new Error('Unauthenticated');
 
       // Set user data
