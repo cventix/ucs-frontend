@@ -4,7 +4,7 @@ export const items = (data) => {
     Object.values(data).forEach((element) => {
       itemList.push({
         id: element._id,
-        img: element['channel-thumnails'],
+        img: element['channel-thumnails'].url,
         title: element.name,
         link: element.slug,
       });

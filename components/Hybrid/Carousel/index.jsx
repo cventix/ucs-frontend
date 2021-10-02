@@ -53,20 +53,18 @@ const Carousel = (props) => {
 
       <Slider {...settings}>
         {items?.length > 0 &&
-          items.map((item) => {
-            return (
-              <CarouselItem
-                key={item.id}
-                img={item.img}
-                title={item.title}
-                description={item.description}
-                link={item.link}
-                itemClassName={itemClassName}
-                linkType={linkType}
-                hoverActionType={hoverActionType}
-              />
-            );
-          })}
+          items.map((item) => (
+            <CarouselItem
+              key={item.id}
+              img={item.img}
+              title={item.title}
+              description={item.description}
+              link={item.link}
+              itemClassName={itemClassName}
+              linkType={linkType}
+              hoverActionType={hoverActionType}
+            />
+          ))}
       </Slider>
     </div>
   );

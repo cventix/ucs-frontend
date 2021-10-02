@@ -38,11 +38,9 @@ const CarouselItem = (props) => {
                     </div>
                   </>
                 )}
-
                 <div className={style['bc-image']}>
-                  {console.log(title, img)}
                   <div className={style['bc-image__wrapper']}>
-                    <img className="test" src={img.url} alt={img.alt} id={img.fieldId} />
+                    <img className="test" src={img} alt={img.title} />
                   </div>
                 </div>
               </div>
@@ -58,10 +56,10 @@ const CarouselItem = (props) => {
           <Link href={{ pathname: `/blog/${[link]}` }}>
             <a className={style['slide-link']}>
               <div className={style[itemClassName]}>
-                {img?.url && (
+                {img && (
                   <div className={style['bc-image']}>
                     <div className={style['bc-image__wrapper']}>
-                      <img src={img.url} alt={img.alt} id={img.fieldId} />
+                      <img src={img} alt={img.title} id={img.fieldId} />
                     </div>
                   </div>
                 )}

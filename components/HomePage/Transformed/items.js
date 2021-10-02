@@ -4,9 +4,9 @@ export const items = (data) => {
     Object.values(data).forEach((element) => {
       itemList.push({
         id: element._id,
-        img: element['channel-thumnails'],
-        title: element.name,
-        description: element.summary,
+        img: element.img,
+        title: element.title,
+        description: element.description,
         link: element.slug,
       });
     });
