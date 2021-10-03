@@ -1,5 +1,6 @@
 import Head from 'next/head';
-export default function PodcastItem({ wistiaKey }) {
+import React from 'react';
+export default function PodcastItem({ wistiaKey, title, description }) {
   return (
     <>
       <Head>
@@ -12,6 +13,9 @@ export default function PodcastItem({ wistiaKey }) {
       >
         &nbsp;
       </div>
+      <br />
+      <h2 className="carousel-item-title">{title}</h2>
+      <p className="carousel-item-description">{description}</p>
     </>
   );
 }

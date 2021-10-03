@@ -13,7 +13,9 @@ const Transformed = ({ data }) => {
         title="China Transformed"
         carouselClassName={`${editorStyle['transformed']} ${editorStyle['bg-channel-copy']}`}
         titleClassName={style['carousel-heading']}
-        ItemComponent={(key) => <TransformItem wistiaKey={key} />}
+        ItemComponent={(key, title, description) => (
+          <TransformItem wistiaKey={key} title={title} description={description} />
+        )}
         items={items(data)}
         itemClassName="big-square"
         hoverActionType="fadeButton"

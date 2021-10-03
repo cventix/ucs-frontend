@@ -1,4 +1,6 @@
-export default function EditorsPickItem({ wistiaKey }) {
+import React from 'react';
+
+export default function EditorsPickItem({ wistiaKey, title, description }) {
   return (
     <>
       <script src={`https://fast.wistia.com/embed/medias/${wistiaKey}.jsonp`} async></script>
@@ -16,6 +18,9 @@ export default function EditorsPickItem({ wistiaKey }) {
           </span>
         </div>
       </div>
+      <br />
+      <h2 className="carousel-item-title">{title}</h2>
+      <p className="carousel-item-description">{description}</p>
     </>
   );
 }

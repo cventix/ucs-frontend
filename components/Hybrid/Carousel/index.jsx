@@ -53,7 +53,9 @@ const Carousel = (props) => {
       )}
 
       <Slider {...settings}>
-        {ItemComponent && items?.length && items.map((item) => ItemComponent(item.wistiaKey))}
+        {ItemComponent &&
+          items?.length &&
+          items.map((item) => ItemComponent(item.wistiaKey, item.title, item.description))}
         {!ItemComponent &&
           items?.length > 0 &&
           items.map((item) => (

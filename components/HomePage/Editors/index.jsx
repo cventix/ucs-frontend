@@ -13,7 +13,9 @@ const EditorsPicks = ({ data }) => {
       carouselClassName={`${editorStyle['picks']} ${editorStyle['bg']}`}
       titleClassName={style['carousel-heading']}
       items={items(data)}
-      ItemComponent={(key) => <EditorPicksItem wistiaKey={key} />}
+      ItemComponent={(key, title, description) => (
+        <EditorPicksItem wistiaKey={key} title={title} description={description} />
+      )}
       itemClassName="horizontal-rectangle"
       hoverActionType="scaleButton"
       linkType="play-action"

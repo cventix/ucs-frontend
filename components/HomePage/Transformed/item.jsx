@@ -1,5 +1,6 @@
 import Head from 'next/head';
-export default function TransformedItem({ wistiaKey }) {
+import React from 'react';
+export default function TransformedItem({ wistiaKey, title, description }) {
   return (
     <>
       <Head>
@@ -13,9 +14,14 @@ export default function TransformedItem({ wistiaKey }) {
           <div
             className={`wistia_channel wistia_async_${wistiaKey} mode=popover`}
             style={{ height: '100%', position: 'absolute', width: '100%' }}
-          ></div>
+          >
+            &nbsp;
+          </div>
         </div>
       </div>
+      <br />
+      <h2 className="carousel-item-title">{title}</h2>
+      <p className="carousel-item-description">{description}</p>
     </>
   );
 }
