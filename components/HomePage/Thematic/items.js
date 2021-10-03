@@ -7,6 +7,7 @@ export const items = (data) => {
         img: element['channel-thumnails'].url,
         title: element.name,
         link: element.slug,
+        wistiaKey: element['wistia-key'],
       });
     });
   return itemList;

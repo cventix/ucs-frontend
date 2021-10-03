@@ -10,7 +10,8 @@ import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import CarouselItem from './CarouselItem';
 
 const Carousel = (props) => {
-  const { title, titleClassName, carouselClassName, items, itemClassName, linkType, hoverActionType } = props;
+  const { title, titleClassName, carouselClassName, items, itemClassName, linkType, hoverActionType, ItemComponent } =
+    props;
 
   const settings = {
     ...props.settings,
@@ -52,7 +53,9 @@ const Carousel = (props) => {
       )}
 
       <Slider {...settings}>
-        {items?.length > 0 &&
+        {ItemComponent && items?.length && items.map((item) => ItemComponent(item.wistiaKey))}
+        {!ItemComponent &&
+          items?.length > 0 &&
           items.map((item) => (
             <CarouselItem
               id={item.id}
