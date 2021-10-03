@@ -1,8 +1,10 @@
+import Head from 'next/head';
 export default function ThematicItem({ wistiaKey }) {
   return (
     <>
-      <script src="https://fast.wistia.com/assets/external/channel.js" async></script>
-      <link rel="stylesheet" href={`https://fast.wistia.com/embed/channel/project/${wistiaKey}/font.css`} />
+      <Head>
+        <link rel="stylesheet" href={`https://fast.wistia.com/embed/channel/project/${wistiaKey}/font.css`} />
+      </Head>
       <div className="wistia_responsive_padding" style={{ padding: '100.0% 0 0 0', position: 'relative' }}>
         <div
           className="wistia_responsive_wrapper"

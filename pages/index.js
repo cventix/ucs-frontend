@@ -1,13 +1,20 @@
 import React from 'react';
+import Head from 'next/head';
 
 import Layout from '../layout';
 import HomeSections from '../components/HomePage';
 
 export default function Home(props) {
   return (
-    <Layout>
-      <HomeSections sectionData={props} />
-    </Layout>
+    <>
+      <Head>
+        <script src="https://fast.wistia.com/assets/external/channel.js" async></script>
+        <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+      </Head>
+      <Layout>
+        <HomeSections sectionData={props} />
+      </Layout>
+    </>
   );
 }
 

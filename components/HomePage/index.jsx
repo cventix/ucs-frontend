@@ -11,7 +11,6 @@ import { useRouter } from 'next/router';
 import DialogGallery from '../Hybrid/DialogGallery';
 
 const HomeSections = ({ sectionData }) => {
-  console.log('data', sectionData);
   const router = useRouter();
   const { gallery } = router.query;
   const [openDialogGalley, setOpenDialogGalley] = useState(false);

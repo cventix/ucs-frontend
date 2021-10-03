@@ -14,7 +14,7 @@ const Podcasts = ({ data }) => {
         carouselClassName={`${editorStyle['members']} ${editorStyle['bg']}`}
         titleClassName={style['carousel-heading']}
         items={items(data)}
-        ItemComponent={(key) => <PodcastItem wistiaKey={key} />}
+        ItemComponent={(key) => <PodcastItem key={key} wistiaKey={key} />}
         itemClassName="small-square"
         hoverActionType="scaleButton"
         linkType="play-action"
