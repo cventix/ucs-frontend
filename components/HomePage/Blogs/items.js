@@ -7,7 +7,7 @@ export const items = (data) => {
         img: element.hero.url,
         title: element.name,
         description: element.author,
-        link: element.slug,
+        query: element.slug,
       });
     });
   return itemList;

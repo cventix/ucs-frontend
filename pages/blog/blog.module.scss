@@ -1,0 +1,54 @@
+@import '../../assets/styles/variables.scss';
+
+.page-heading-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  padding: 200px 50px 50px;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  background-image: linear-gradient(0deg, $ucf_dark, hsla(0, 0%, 100%, 0)),
+    url(https://assets.website-files.com/603f65b…/603f668…_603df7f…_about-top-1.jpg);
+  background-position: 0 0, 50% 50%;
+  background-size: auto, cover;
+  background-attachment: scroll, scroll;
+  -o-object-fit: cover;
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+  background-repeat: repeat, no-repeat;
+}
+.title {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 25px;
+  padding-bottom: 4px;
+  font-family: Muli, sans-serif;
+  color: $ucf_white;
+  text-align: center;
+}
+.author {
+  padding-top: 12px;
+  color: $ucf_maximum_blue;
+  font-size: 24px;
+  font-weight: 700;
+}
+.date {
+  padding-top: 6px;
+  color: $ucf_maximum_blue;
+  font-size: 16px;
+  font-weight: 700;
+}
+.content {
+  width: 70rem;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 40px;
+  padding-left: 40px;
+  color: $ucf_white;
+  font-size: 16px;
+}

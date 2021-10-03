@@ -60,11 +60,12 @@ const Carousel = (props) => {
           items?.length > 0 &&
           items.map((item) => (
             <CarouselItem
+              id={item.id}
               key={item.id}
               img={item.img}
               title={item.title}
               description={item.description}
-              link={item.link}
+              query={item.query}
               itemClassName={itemClassName}
               linkType={linkType}
               hoverActionType={hoverActionType}

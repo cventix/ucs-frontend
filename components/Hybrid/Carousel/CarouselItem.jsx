@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 const CarouselItem = (props) => {
-  const { img, title, description, hoverActionType, itemClassName, link, linkType } = props;
+  const { img, id, title, description, hoverActionType, itemClassName, query, linkType } = props;
 
   const imageClassNameHandler = () => {
     switch (hoverActionType) {
@@ -22,7 +22,7 @@ const CarouselItem = (props) => {
     switch (linkType) {
       case 'play-action': {
         return (
-          <Link href={{ pathname: '/', query: { wchannelid: link } }}>
+          <Link href={{ pathname: '/', query: { wchannelid: query } }}>
             <a className={style['slide-link']}>
               <div className={imageClassNameHandler()}>
                 {hoverActionType !== 'none' && (
@@ -53,7 +53,7 @@ const CarouselItem = (props) => {
       }
       case 'blog': {
         return (
-          <Link href={{ pathname: `/blog/${[link]}` }}>
+          <Link href={{ pathname: `/blog/${id}/${query}` }}>
             <a className={style['slide-link']}>
               <div className={style[itemClassName]}>
                 {img && (
@@ -101,12 +101,13 @@ CarouselItem.propTypes = {
     alt: PropTypes.string,
     fieldId: PropTypes.string,
   }),
+  id: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   onClick: PropTypes.func,
   hoverActionType: PropTypes.string,
   linkType: PropTypes.string,
-  link: PropTypes.string,
+  query: PropTypes.string,
   itemClassName: PropTypes.string,
 };
 
@@ -116,12 +117,13 @@ CarouselItem.defaultProps = {
     alt: 'img-slider',
     fieldId: '',
   },
+  id: '',
   title: '',
   description: '',
   onClick: () => {},
   hoverActionType: 'none',
   linkType: 'normal',
-  link: '#',
+  query: '',
   itemClassName: 'medium-square',
 };
 
