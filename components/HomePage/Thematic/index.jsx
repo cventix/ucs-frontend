@@ -13,7 +13,9 @@ const Thematic = ({ data }) => {
         title="Thematic"
         carouselClassName={editorStyle['events']}
         titleClassName={style['carousel-heading']}
-        ItemComponent={(key) => <ThematicItem wistiaKey={key} />}
+        ItemComponent={(key, title, description) => (
+          <ThematicItem wistiaKey={key} title={title} description={description} />
+        )}
         items={items(data)}
         itemClassName="big-square"
         hoverActionType="fadeButton"

@@ -1,5 +1,6 @@
 import Head from 'next/head';
-export default function ThematicItem({ wistiaKey }) {
+import React from 'react';
+export default function ThematicItem({ wistiaKey, title, description }) {
   return (
     <>
       <Head>
@@ -16,6 +17,8 @@ export default function ThematicItem({ wistiaKey }) {
           ></div>
         </div>
       </div>
+      <h2 className="carousel-item-title">{title}</h2>
+      <p className="carousel-item-description">{description}</p>
     </>
   );
 }
