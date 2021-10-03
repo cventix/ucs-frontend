@@ -52,10 +52,8 @@ const CarouselItem = (props) => {
         );
       }
       case 'blog': {
-        console.log(props);
-        console.log(query);
         return (
-          <Link href={{ pathname: `/blog/${[id]}`, query: { slug: [query] } }}>
+          <Link href={{ pathname: `/blog/${id}/${query}` }}>
             <a className={style['slide-link']}>
               <div className={style[itemClassName]}>
                 {img && (
