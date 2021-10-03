@@ -39,7 +39,7 @@ function Footer() {
             </div>
             <div id="w-node-_46add9f3-0030-ad83-ea9c-d69b84071f2b-84071f15" className={footerStyles['footer-mid']}>
               <img
-                src="images/603f6683f17e199e7e237545_603df7f309bc1080aae8a8f1_US China Series Logo_white.png"
+                src="/images/603f6683f17e199e7e237545_603df7f309bc1080aae8a8f1_US China Series Logo_white.png"
                 loading="lazy"
                 width={132}
                 alt="logo"
