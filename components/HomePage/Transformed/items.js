@@ -8,6 +8,7 @@ export const items = (data) => {
         title: element.title,
         description: element.description,
         link: element.slug,
+        wistiaKey: element['wistia-key'],
       });
     });
   return itemList;
