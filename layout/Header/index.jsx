@@ -13,7 +13,7 @@ const Header = () => {
             <div className={headerStyles['navigation-desktop-content-flex']}>
               <div className={headerStyles['navigation-desktop-left-wrap']}>
                 <img
-                  src="images/603df7f309bc103be0e8a8fb_icon.png"
+                  src="/images/603df7f309bc103be0e8a8fb_icon.png"
                   width={49}
                   alt="logo"
                   className="ir-china-logo-nav"
